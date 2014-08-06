@@ -49,8 +49,23 @@ Archivos, tipos y atributos \\
 
 
 \section*{Introducción}
-Este documento describe los conceptos básicos sobre propiedades de archivos, 
-incluyendo tipos y permisos de archivos, propietarios y grupos. 
+Este documento describe los conceptos básicos sobre tipos de archivos en 
+sistemas UNIX, formato interno, y permisos de archivos. 
+
+Debido al hecho de que los datos generados por una organización, son de vital
+importancia para la misma. La correcta identificación y manipulación de los 
+dichos datos por parte de los administradores del sistema, así como 
+también por los propios usuarios que los generan es clave para el éxito de la
+organización. 
+
+En esta asignatura trataremos acerca de aplicaciones que manipulan datos. 
+Un administrador, entre otras cosas, deberá ser capaz de identificar e instruir 
+a los usuarios del sistema acerca de cómo trabajar con ellos de manera segura
+y eficiente. 
+
+Comenzaremos entonces por recapitular acerca de los aspectos técnicos básicos
+que un administrador debe conocer sobre la organización de archivos y datos 
+dentro de un sistema. 
 
 \section*{Tipos de archivos}
 Si nos preguntáramos rápidamente cuál de los siguientes elementos existen 
@@ -87,7 +102,7 @@ herramientas son las que utilizaremos para manipularlos. Diferenciamos
 entonces el tipo de archivos de su contenido.   
 
 Para los fines de esta asignatura, limitaremos nuestro estudio a los tres 
-primeros tipos de archivos. En particular, serán de nuestro interés el 
+primeros tipos de archivos. En particular, será de nuestro interés el 
 formato interno de archivos regulares, cuyo contenido serán la información 
 creada y manipulada por la mayoría de los usuarios normales del sistema.  
 
@@ -106,10 +121,13 @@ bibliotecas compartidas, son todos archivos regulares.
 La creación de archivos regulares sucede a través de distintos programas de 
 aplicación, por ejemplo cuando utilizamos un software de ofimática, cuando 
 descargamos archivos del correo electrónico, a través de un editor de texto, 
-etc. El formato 
-interno de archivos regulares dependerá entonces de la aplicación que lo creó. 
+etc. El formato interno de archivos regulares dependerá entonces de la 
+aplicación que lo creó. 
 
-La eliminación de archivos regulares sucede a través del comando \texttt{rm}. 
+La eliminación de archivos regulares sucede a través del comando \texttt{rm}, en
+caso de utilizar el intérprete de comandos; o a través de aplicaciones 
+gráficas que provean una funcionalidad similar. Este último será el método 
+utilizado por la mayoría de los usuarios normales. 
 
 \subsection*{Directorios}
 Los directorios son archivos que contienen referencias a otros archivos. 
