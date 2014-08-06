@@ -41,8 +41,6 @@ Archivos, tipos y atributos \\
 
 \def\ti#1#2{\texttt{#1} & #2 \\ }
 
-
-
 \begin{document}
 
 \thispagestyle{empty}
@@ -84,12 +82,14 @@ tipo UNIX definen siete tipos de archivos:
 \item Pipes 
 \end{itemize}
 
-Es importante distinguir los tipos de archivos.  
+Es importante distinguir los tipos de archivos pues esto nos indica qué 
+herramientas son las que utilizaremos para manipularlos. Diferenciamos 
+entonces el tipo de archivos de su contenido.   
 
 Para los fines de esta asignatura, limitaremos nuestro estudio a los tres 
 primeros tipos de archivos. En particular, serán de nuestro interés el 
 formato interno de archivos regulares, cuyo contenido serán la información 
-creada y manipulada por la mayoría de los usuarios regulares del sistema.  
+creada y manipulada por la mayoría de los usuarios normales del sistema.  
 
 En este contexto, un archivo será una secuencia de bytes (un byte es un 
 pequeño trozo de información, normalmente compuesto por ocho bits. Para 
@@ -98,7 +98,6 @@ caracter). El sistema no impone estructura alguna a los archivos, ni
 asigna significado a su contenido; el significado de los bytes depende 
 únicamente de los programas que interpretan el archivo. 
 
-
 \subsection*{Archivos regulares}
 No son otra cosa que una ``bolsa'' de bytes: UNIX no impone ninguna estructura 
 a su contenido. Los archivos de texto, de datos, programas ejecutables, 
@@ -106,7 +105,7 @@ bibliotecas compartidas, son todos archivos regulares.
 
 La creación de archivos regulares sucede a través de distintos programas de 
 aplicación, por ejemplo cuando utilizamos un software de ofimática, cuando 
-descargamos archivos del correo eletrónico, a través de un editor de texto, 
+descargamos archivos del correo electrónico, a través de un editor de texto, 
 etc. El formato 
 interno de archivos regulares dependerá entonces de la aplicación que lo creó. 
 
