@@ -55,21 +55,25 @@ Este documento describe los conceptos básicos sobre propiedades de archivos,
 incluyendo tipos y permisos de archivos, propietarios y grupos. 
 
 \section*{Tipos de archivos}
+Si nos preguntáramos rápidamente cuál de los siguientes elementos existen 
+dentro de un sistema de archivos: 
+\begin{itemize}
+\item Procesos 
+\item Segmentos de memoria compartida
+\item Canales de comunicación entre procesos
+\item Dispositivos de almacenamiento masivo 
+\end{itemize}
 
-Un archivo es una secuencia de bytes (un byte es un pequeño trozo de 
-información, normalmente compuesto por ocho bits. Para nuestros propósitos
-durante este texto, un byte es equivalente a un caracter). El sistema no impone 
-estructura alguna a los archivos, ni asigna significado a su contenido; el 
-significado de los bytes depende únicamente de los programas que 
-interpretan el archivo. 
+En los sistemas de tipo UNIX, la respuesta debería ser: ``todos los 
+anteriores''. Adicionalmente, encontraremos también, archivos de usuarios. 
 
-Vimos en apuntes anteriores que los archivos se organizan dentro de sistemas de 
-archivos (ext3, ext4,NTFS, etc). Estos sistemas de archivos son el modo de 
-ordenar los archivos dentro de los distintos medios de almacenamiento (discos
-rígidos, de estado sólido, memorias flash, etc). 
+Mientras que el propósito básico de un sistema de archivos es organizar 
+los recursos de almacenamiento del  sistema, los programadores han utilizado
+estos mismos conceptos y mecanismos para representar y manipular otro tipo 
+de objetos, tales como los mencionados en la lista anterior. 
 
-En general, la mayoría de los sistemas de archivos de sistemas de tipo UNIX
-definen seis tipos de archivos:
+En este sentido, la mayoría de los sistemas de archivos de sistemas de 
+tipo UNIX definen siete tipos de archivos:
 
 \begin{itemize}
 \item Archivos regulares (Ej. un archivo de texto, un pdf son archivos regulares)
@@ -80,17 +84,30 @@ definen seis tipos de archivos:
 \item Pipes 
 \end{itemize}
 
-Limitaremos nuestro estudio a los tres primeros tipos de archivos. 
+Es importante distinguir los tipos de archivos.  
+
+Para los fines de esta asignatura, limitaremos nuestro estudio a los tres 
+primeros tipos de archivos. En particular, serán de nuestro interés el 
+formato interno de archivos regulares, cuyo contenido serán la información 
+creada y manipulada por la mayoría de los usuarios regulares del sistema.  
+
+En este contexto, un archivo será una secuencia de bytes (un byte es un 
+pequeño trozo de información, normalmente compuesto por ocho bits. Para 
+nuestros propósitos durante este texto, un byte es equivalente a un 
+caracter). El sistema no impone estructura alguna a los archivos, ni 
+asigna significado a su contenido; el significado de los bytes depende 
+únicamente de los programas que interpretan el archivo. 
 
 
 \subsection*{Archivos regulares}
-No son otra cosa que una bolsa de bytes: UNIX no impone ninguna estructura a
-su contenido. Los archivos de texto, de datos, programas ejecutables, bibliotecas
-compartidas, son todos archivos regulares.
+No son otra cosa que una ``bolsa'' de bytes: UNIX no impone ninguna estructura 
+a su contenido. Los archivos de texto, de datos, programas ejecutables, 
+bibliotecas compartidas, son todos archivos regulares.
 
 La creación de archivos regulares sucede a través de distintos programas de 
 aplicación, por ejemplo cuando utilizamos un software de ofimática, cuando 
-descargamos archivos del email, a través de un editor de texto, etc. El formato 
+descargamos archivos del correo eletrónico, a través de un editor de texto, 
+etc. El formato 
 interno de archivos regulares dependerá entonces de la aplicación que lo creó. 
 
 La eliminación de archivos regulares sucede a través del comando \texttt{rm}. 
