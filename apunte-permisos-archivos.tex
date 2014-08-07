@@ -53,10 +53,10 @@ Este documento describe los conceptos básicos sobre tipos de archivos en
 sistemas UNIX, formato interno, y permisos de archivos. 
 
 Debido al hecho de que los datos generados por una organización, son de vital
-importancia para la misma. La correcta identificación y manipulación de los 
-dichos datos por parte de los administradores del sistema, así como 
-también por los propios usuarios que los generan es clave para el éxito de la
-organización. 
+importancia para la misma, la correcta identificación y manipulación de los 
+mismos por parte de los administradores del sistema, así como 
+también por parte de los propios usuarios que los generan, es clave para el 
+éxito de la organización. 
 
 En esta asignatura trataremos acerca de aplicaciones que manipulan datos. 
 Un administrador, entre otras cosas, deberá ser capaz de identificar e instruir 
@@ -66,6 +66,68 @@ y eficiente.
 Comenzaremos entonces por recapitular acerca de los aspectos técnicos básicos
 que un administrador debe conocer sobre la organización de archivos y datos 
 dentro de un sistema. 
+
+\section*{Sistemas de archivos}
+Sin entrar en detalles sobre sistemas de archivos de propósito especial, un 
+sistema de archivos es un conjunto de software, parte del sistema operativo,
+que hace que el almacenamiento físico como ser un disco rígido, un DVD, una 
+memoria flash, etc. aparezcan a la vista de los usuarios como una jerarquía
+de directorios. Proveyendo además, los servicios para manipular dicha 
+jerarquía. 
+
+Típicamente, la única manera en que un usuario u aplicación podrá acceder a 
+los archivos será a través de un \textit{sistema de archivos}. Rara vez el 
+usuario u aplicación realizará una administración directa de los medios de
+almacenamiento.\footnote{Existen casos, por ejemplo ciertas bases de datos 
+que prefieren hacer uso directo de los dispositivos, eliminando al sistema 
+de archivos como intermediario}.
+
+Podemos pensar un sistema de archivos como el conjunto de cuatro componentes
+principales:
+\begin{itemize}
+\item Un espacio de nombres: es decir, una forma de nombrar cosas y 
+estructurarlas en una jerarquía. 
+\item Una API: un conjunto de llamadas a sistema para navegar y manipular
+la jerarquía. 
+\item Un modelo de seguridad: un esquema que nos permita proteger, ocultar y
+compartir cosas. 
+\item Una implementación: código que plasme el modelo lógico al disco 
+físico.
+\end{itemize}
+
+
+\subsection*{Requisitos deseables}
+Desde el punto de vista de un usuario, un sistema de archivos de propósito 
+general, deberá cumplir con el siguiente conjunto mínimo de requisitos:
+
+\begin{itemize}
+\item Cada usuario debiera ser capaz de crear, borrar y modificar sus 
+archivos.
+\item Cada usuario podría tener acceso controlado a los archivos de otros 
+usuarios.
+\item Cada usuario debiera tener control sobre el tipo de acceso permitido
+sobre sus archivos. 
+\item Cada usuario debiera ser capaz de reestructurar los archivos en una 
+forma apropiada para el problema.
+\item Cada usuario debiera ser capaz de mover datos entre archivos. 
+\item Cada usuario debiera ser capaz de crear copias y recuperar los 
+archivos en caso de daño. 
+\item Cada usuario debiera acceder a sus archivos a través de un nombre
+simbólico.
+\end{itemize}
+
+\subsection*{Implementaciones}
+Existen numerosas implementaciones de sistemas de archivos; y como cualquier 
+trozo de software, los sistemas de archivos son susceptibles de licenciamientos 
+y patentes. Esto plantea, en algunos caso, un limitante al soporte que puede ser
+provisto para un determinado sistema de archivos.\footnote{Por ejemplo, refiérase a https://ols.fedoraproject.org/OLS/Reprints-2002/hellwig-reprint.pdf}
+
+Nos limitaremos pues, a sistemas de archivos que permiten su estudio e 
+implementación libre. En particular hemos mencionado en asignaturas previas
+los sistemas de archivos ext2, ext3 y ext4. 
+
+\subsection*{Inodo}
+El concepto de Inodo se extiende más allá de la implementación de los   
 
 \section*{Tipos de archivos}
 Si nos preguntáramos rápidamente cuál de los siguientes elementos existen 
