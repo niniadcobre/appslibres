@@ -160,11 +160,46 @@ comando {\tt ls} mostrar el número de Nodo-I asociado a cada archivo:
 }
 \vspace*{0.4cm} } }
 
-
-
 Desde el punto de vista del administrador, y relativo a estos conceptos, es
 importante tener en cuenta que: \textit{el conjunto de inodos es finito} y 
-solo relativo a un sistema de archivos. 
+solo relativo a un sistema de archivos. Esto significa por ejemplo, que 
+además del espacio disponible en un sistema de archivos, también puede 
+agotarse el número de inodos disponibles en el mismo (esto podría pasar por,
+ejemplo si un sistema de archivos es utilizados para almacenar infinidad de
+archivos pequeños). También significa que, el número de inodo es relativo 
+al sistema de archivos y por ende, \textit{nos será único en todo el 
+sistema}.   
+
+El número total de de inodos disponibles en un sistema de archivos puede ser
+configurado de acuerdo a las necesidades de uso del sistema de archivos, a
+través del comando \textit{mkfs}.
+
+Como hemos mencionado, un archivo puede tener múltiples nombres simbólicos
+asociados a él dentro de un mismo sistema de archivos. El comando {\tt find}
+nos permite de manera sencilla obtener todos los posibles nombres de un 
+mismo archivo, conociendo su número de inodo y a través de la opción 
+{\tt -inum} o {\tt samefile}:
+
+\fcolorbox{black}{grey}{
+\parbox[t]{1.0\linewidth}{ \vspace*{0.4cm}
+{\bf Ejemplo:} \\
+\texttt{
+\$ ls -1i *junio.pdf \\
+5505240 junio.pdf \\
+5505240 sueldojunio.pdf \\
+\$ find -inum 5505240 \\
+./sueldojunio.pdf\\
+./junio.pdf\\
+\$ find -samefile sueldojunio.pdf \\
+./sueldojunio.pdf\\
+./junio.pdf\\
+\$\\
+}
+\vspace*{0.4cm} } }
+
+Lo anterior, puede ser útil cuando nos sentimos desconcertados al eliminar un 
+archivo y notar que aún no se ha liberado el espacio... entonces recordamos que,
+tal vez, exista otro nombre para esa misma ``bolsa de bytes''.
 
 \section*{Tipos de archivos}
 Si nos preguntáramos rápidamente cuál de los siguientes elementos existen 
