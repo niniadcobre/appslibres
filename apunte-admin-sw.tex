@@ -1,0 +1,501 @@
+%%% LaTeX Template: Article/Thesis/etc. with colored headings and special fonts
+%%%
+%%% Source: http://www.howtotex.com/
+
+\documentclass[12pt]{article}
+
+
+\usepackage{apuntes-estilo}
+\usepackage{fancyhdr,lastpage}
+\usepackage{color,colortbl}
+\usepackage{verbatim}
+
+\def\maketitle{
+
+% Titulo 
+ \makeatletter
+ {\color{bl} \centering \huge \sc \textbf{
+  Instalación, configuración y actualización de software.\\ 
+\large \vspace*{-8pt} \color{black} Guía básica de administración de paquetes de software. 
+ \vspace*{8pt} }\par}
+ \makeatother
+
+% Autor
+\makeatletter
+ {\centering \small 
+ 	Departamento de Ingeniería de Computadoras \\
+ 	Facultad de Informática - Universidad Nacional del Comahue \\
+ 	\vspace{20pt} }
+ \makeatother
+
+}
+
+% Custom headers and footers
+\fancyhf{} % clear all header and footer fields
+\fancypagestyle{plain}{\fancyhf{}}
+  	\pagestyle{fancy}
+ 	\lhead{\footnotesize Administración de software - Departamento de Ingeniería de Computadoras}
+ 	\rhead{\footnotesize \thepage\ }	% ''Page 1 of 2''
+
+\def\ti#1#2{\texttt{#1} & #2 \\ }
+
+
+
+\begin{document}
+
+\thispagestyle{empty}
+\maketitle
+\setlength{\parindent}{0pt}
+
+\section*{Introducción}
+
+Si bien la instalación, actualización y remoción de software hoy en día
+puede parecer trivial, su mala administración suele ser una fuente de 
+errores complejos que pueden derivar en daños graves al sistema. 
+En particular en los sistemas de tipo UNIX como GNU/Linux el ecosistema
+de aplicaciones es delicado, y para nada anárquico. Dicho ecosistema tiene 
+una estructura y una forma particular de manipularlo. 
+
+UNIX y variantes de sistemas GNU/Linux utilizan, generalmente, algún
+sistema de empaquetado para facilitar la tarea de la administración de software.
+Los {\bf paquetes} se han utilizado tradicionalmente para distribuir programas,
+pero pueden ser también utilizados para contener archivos de configuración
+o datos compartidos utilizados por varios paquetes. Su objetivo principal
+es tratar de lograr un proceso de instalación tan atómico como sea posible,
+de manera que si ocurre un error en el proceso, el administrador
+sólo debe pausar la operación en curso (instalación, desistalación, etc)
+y el sistema no quede en algún estado inconsistente.
+
+Existen diversas maneras de gestionar el software en una distribución 
+GNU/Linux. La forma más común y recomendada para un administrador es a través de paquetes
+provistos por la organización que desarrolla la distribución GNU/Linux.
+Pero también existen otros mecanismos
+para la instalación de software en sistemas GNU/Linux :
+
+- En forma de código fuente, en donde se debe compilar e instalar mediante herramientas de desarrollo
+- En forma binaria provista por terceras partes
+- En forma de paquetes provisto por terceras partes
+
+Estos mecanismos y otros no listados quedan fuera del alcance de este artículo.
+
+\section*{Administrando Paquetes de Software}
+
+Las tareás básicas en la Administración de Software son :
+\begin{itemize}
+\item Actualizar la lista de paquetes disponibles;
+\item Instalar, reinstalar, actualizar, y eliminar paquetes de software;
+\item Obtener información acerca de los paquetes, incluyendo la versión, estado, dependencias, tamaño, integridad, etc;
+\item Determinar qué archivos proporciona el paquete, y descubrir cual de los paquetes contiene un archivo determinado.
+\end{itemize}
+
+Existen una serie de conceptos que la 
+mayoría de las distribuciones implementan y que un administrador de 
+sistemas debe conocer con certeza aún cuando no conozca la implementación
+particular de cada distribución.  
+
+
+\subsection*{Paquete de software}
+
+
+Un paquete de software es una serie de programas que se distribuyen conjuntamente. Algunas de las razones suelen ser que el funcionamiento de cada uno complementa a o requiere de otros. Un paquete es un único archivo.
+
+
+Cada paquete es un archivo comprimido que contiene información del producto, archivos de programa, iconos, documentación y scripts de administración. Las aplicaciones de administración utilizan estos archivos para ubicar, instalar, actualizar y remover software de una forma segura. 
+
+Existen diferentes formatos de paquetes utilizados, pero 
+dos formatos de paquetes binarios ampliamente difundidos son los formatos DEB y RPM.
+
+{\bf deb} es el formato y la extensión del nombre de los archivos de paquetes de software de la distribución de Linux Debian y derivadas (e.j.Ubuntu), y, el nombre más usado para dichos paquetes. 
+{\bf rpm} es el formato y extensión del nombre de los archivos de paquetes de la distribucion Red Hat y muchas otras.
+
+
+\subsection*{Repositorio de Paquetes de software}
+
+
+
+Un repositorio es un directorio o sitio web que contiene paquetes de software y archivos de índices. 
+Las utilidades de administración de software como yum o apt (definiremos yum y apt mas adelante)
+automáticamente ubican y obtienen 
+los paquetes desde esos repositorios. Este método libera al administrador de tener que buscar e instalar las nuevas aplicaciones o actualizaciones de forma manual. 
+
+Generalmente, las distribuciones GNU/Linux proporcionan una red de servidores que proveen 
+el servicio de repositorios de software a los usuarios, de modo que siempre
+esté disponible el servicio para la instalación de programas en estos sistemas.
+
+\fcolorbox{black}{grey}{
+\parbox[t]{1.0\linewidth}{ \vspace*{0.4cm}
+Los desarrolladores de software de terceros también proporcionan repositorios
+para sus paquetes compatibles con distintas distribuciones GNU/Linux. Pero,
+es importante recordar que {\bf no es recomendado instalar software que no se encuentre en los 
+repositorios oficiales}. Además, es frecuente que al instalar software de terceras 
+partes el administrador deba utilizar métodos manuales.
+\vspace*{0.4cm} } }
+
+\subsection*{Sistema de Gestión de Paquetes de Software}
+
+Un sistema de gestión de paquetes, también conocido como gestor de paquetes, es una colección de herramientas que sirven para automatizar el proceso de instalación, actualización, configuración y eliminación de paquetes de software.
+
+Existen decenas de sistemas de gestión de paquetes. Cada distribución GNU/Linux opta 
+por un sistema oficialmente. Dos de los sistemas mas utilizados en distribuciones
+que utilizan paquetes binarios son dpkg y rpm.
+
+{\bf dpkg} es la base del sistema de gestión de paquetes creado por el proyecto Debian GNU/Linux, mientras que {\bf rpm}
+fue adoptado por Red Hat.
+Ambos sistemas se utilizan en las principales distribuciones GNU/Linux. dpkg y el formato
+deb se utilizan en Debian, Ubuntu, Tuquito, Mint, y muchas otras. RPM es utilizado por
+las distribuciones Fedora, CentOS, Red Hat, Suse Linux, y varias mas.
+
+
+\section*{Tareas en la Administración de Paquetes de Software}
+
+La función básica de la administración de paquetes la realizan los programas del sistema
+de gestión de paquetes de software. 
+
+RPM y YUM (para sistemas Red Hat), y dpkg y APT (para los sistemas Debian) poseen muchas similitudes. 
+Ambos permiten instalar y quitar paquetes. La información sobre los paquetes instalados se guarda en una base de datos en el sistema local. Ambos tienen la funcionalidad básica desde la línea de comando, además de herramientas adicionales que pueden proporcionar al usuario interfaces de uso más sencillo. Ambos pueden también recuperar paquetes de Internet.
+
+Al instalar un sistema GNU/Linux, por lo general, se instalan una gran variedad de paquetes. 
+El set puede personalizarse según el uso que se quiera dar al sistema, como servidor, escritorio, o terminal de trabajo del desarrollador. 
+Y en algún momento probablemente sea necesario instalar paquetes nuevos para obtener alguna otra funcionalidad, actualizar el paquete que posee, o incluso borrar paquetes que ya no se necesitan o son obsoleto debido a la aparición de nuevos paquetes. 
+
+Las siguientes secciones explican en ejemplos, las acciones básicas utilizadas en la administración
+de paquetes.
+
+\subsection*{Actualizar la lista de paquetes disponibles}
+
+En un sistema Debian se puede definir el listado de repositorios oficial a utilizar  editando el archivo {\tt /etc/apt/sources.list}
+
+Ejemplo :
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+\# cat /etc/apt/sources.list \\
+ \\
+deb http://ftp.us.debian.org/debian/ testing main \\
+ } \vspace*{0.5cm} } } 
+
+Con esta línea individual se le indica al sistema que utilice el repositorio oficial de Debian, versión testing.
+
+Para que el sistema Debian conozca ``cuál'' es el listado de paquetes disponibles se debe ejecutar \texttt{apt-get update}
+
+El comando \texttt{apt-get update} sincroniza el índice de paquetes desde sus
+           fuentes. Los índices de paquetes disponibles se obtienen de los
+           lugares especificados en \texttt{/etc/apt/sources.list}. Por ejemplo, cuando
+           se usa un archivo de Debian, esta orden descarga y analiza los
+           ficheros Packages.gz, de tal forma que la información acerca de los
+           nuevos paquetes pasa a estar disponible. Siempre se debe realizar
+           un update antes de un upgrade o un dist-upgrade. Tenga en cuenta
+           que el indicador de progreso será incorrecto, ya que se desconoce
+           de antemano el tamaño de los archivos de paquete.
+
+\fcolorbox{black}{grey}{
+\parbox[t]{1.0\linewidth}{ \vspace*{0.4cm}
+{\bf Lo importante:} 
+Es una buena costumbre ejecutar este archivo regularmente para mantenerse informado acerca de las posibilidades de actualización para el sistema, particularmente las actualizaciones de seguridad.
+\vspace*{0.4cm} } }
+
+
+
+En redhat el comando es :
+
+\subsection*{Instalar un Paquete de Software}
+
+Con el archivo \texttt{/etc/apt/sources.list} definido correctamente, y la lista de paquetes local al día, todo lo
+que se necesita es ejecutar \texttt{apt-get install} para instalar un nuevo programa.
+
+Ejemplo :
+
+{\tt     \# apt-get install xchat}
+
+APT buscará en su base de datos para encontrar la versión más reciente del paquete y lo descargará del servidor correspondiente especificado en sources.list. 
+Si este paquete necesitara otro para funcionar -- como en este caso -- APT resolverá las dependencias e instalará los paquetes necesarios. Observe este ejemplo:
+
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+     \# apt-get install nautilus \\ 
+     Reading Package Lists... Done \\
+     Building Dependency Tree... Done\\
+     The following extra packages will be installed:\\
+       bonobo libmedusa0 libnautilus0\\
+     The following NEW packages will be installed:\\
+       bonobo libmedusa0 libnautilus0 nautilus\\
+     0 packages upgraded, 4 newly installed, 0 to remove and 1 not upgraded.\\
+     Need to get 8329kB of archives. After unpacking 17.2MB will be used.\\
+     Do you want to continue? [Y/n]\\
+ } \vspace*{0.5cm} } } 
+
+El paquete nautilus necesita las biblotecas compartidas mencionadas, así pues APT las descargará del servidor. Si se especifican antes los nombres de esas biblotecas con el comando apt-get APT no pregunta, si desea continuar o no; supone automáticamente que se desean instalar esos paquetes.
+
+Esto significa que APT sólo pregunta por confirmación cuando se van a instalar paquetes que no fueron especificados en la línea de comando.
+
+Pueden seleccionarse varios paquetes para instalar en una sola línea. Los archivos descargados son almacenados en el directorio \texttt{/var/cache/apt/archives} para su instalación posterior.
+
+Puede especificar también que paquetes serán eliminados en la misma línea. Sólo agregue un "-" inmediatamente después del nombre del paquete que quiere eliminar, por ejemplo:
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+     \# apt-get install nautilus gnome-panel-\\
+     Reading Package Lists... Done\\
+     Building Dependency Tree... Done\\
+     The following extra packages will be installed:\\
+       bonobo libmedusa0 libnautilus0\\
+     The following packages will be REMOVED:\\
+       gnome-applets gnome-panel gnome-panel-data gnome-session\\
+     The following NEW packages will be installed:\\
+       bonobo libmedusa0 libnautilus0 nautilus\\
+     0 packages upgraded, 4 newly installed, 4 to remove and 1 not upgraded.\\
+     Need to get 8329kB of archives. After unpacking 2594kB will be used.\\
+     Do you want to continue? [Y/n]\\
+ } \vspace*{0.5cm} } } 
+
+\subsubsection*{Reinstalar un Paquete}
+
+Si de alguna forma daña un paquete instalado, o simplemente desea reinstalar la versión más nueva disponible del paquete, puede utilizar la opción --reinstall como se muestra:
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+     \# apt-get --reinstall install gdm\\
+     Reading Package Lists... Done\\
+     Building Dependency Tree... Done\\
+     0 packages upgraded, 0 newly installed, 1 reinstalled, 0 to remove and 1 not\\
+      upgraded.\\
+     Need to get 0B/182kB of archives. After unpacking 0B will be used.\\
+     Do you want to continue? [Y/n]\\
+ } \vspace*{0.5cm} } } 
+
+
+
+\subsection*{Quitar un Paquete de Software del Sistema}
+
+Si ya no necesita utilizar cierto paquete, puede eliminarlo de su sistema utilizando APT. Para realizar esta tarea sólo escriba: \texttt{apt-get remove paquete}. por ejemplo:
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+     \# apt-get remove gnome-panel\\
+     Reading Package Lists... Done\\
+     Building Dependency Tree... Done\\
+     The following packages will be REMOVED:\\
+       gnome-applets gnome-panel gnome-panel-data gnome-session\\
+     0 packages upgraded, 0 newly installed, 4 to remove and 1 not upgraded.\\
+     Need to get 0B of archives. After unpacking 14.6MB will be freed.\\
+     Do you want to continue? [Y/n]\\
+ } \vspace*{0.5cm} } } 
+
+Como se puede apreciar en el ejemplo anterior, APT se hace cargo de eliminar los paquetes dependientes del paquete eliminado. No hay manera de eliminar un paquete utilizando APT sin eliminar los paquetes que éste necesitaba.
+
+Ejecutando apt-get como en el ejemplo causará que los paquetes sean eliminados, pero sus archivos de configuración, si existían, permanecerán intactos en el sistema. Para una eliminación completa del paquete, ejecute:
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+     \# apt-get --purge remove gnome-panel\\
+     Reading Package Lists... Done\\
+     Building Dependency Tree... Done\\
+     The following packages will be REMOVED:\\
+       gnome-applets* gnome-panel* gnome-panel-data* gnome-session*\\
+     0 packages upgraded, 0 newly installed, 4 to remove and 1 not upgraded.\\
+     Need to get 0B of archives. After unpacking 14.6MB will be freed.\\
+     Do you want to continue? [Y/n]\\
+ } \vspace*{0.5cm} } } 
+
+Observe el "*" después de los nombres. Esto indica que los archivos de configuración de cada paquete serán eliminados también.
+
+Al igual que en el caso de la instalación, puede utilizar un símbolo con la opción de "remove" para invertir el significado de un paquete en especial. En el caso de la eliminación, si agrega un ``+'' después del nombre del paquete, el paquete será instalado en vez de eliminarlo.
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+     \# apt-get --purge remove gnome-panel nautilus+\\
+     Reading Package Lists... Done\\
+     Building Dependency Tree... Done\\
+     The following extra packages will be installed:\\
+       bonobo libmedusa0 libnautilus0 nautilus\\
+     The following packages will be REMOVED:\\
+       gnome-applets* gnome-panel* gnome-panel-data* gnome-session*\\
+     The following NEW packages will be installed:\\
+       bonobo libmedusa0 libnautilus0 nautilus\\
+     0 packages upgraded, 4 newly installed, 4 to remove and 1 not upgraded.\\
+     Need to get 8329kB of archives. After unpacking 2594kB will be used.\\
+     Do you want to continue? [Y/n]\\
+ } \vspace*{0.5cm} } } 
+
+Observe que apt-get enlista los paquetes que serán instalados aparte de los seleccionados (esto es, aquellos que su instalación es necesaria para el funcionamiento de aquellos que son seleccionados), aquellos que serán eliminados, y aquellos que serán instalados (incluyendo los paquetes adicionales otra vez).
+
+\subsection*{Actualizar el Sistema}
+
+Actualizar el Sistema es traer desde los repositorios las versiones mas recientes de los paquetes instalados,
+e instalarlas. Se debe utilizar la opción dist-upgrade de apt-get.
+
+Es muy importante realizar un \texttt{apt-get update} antes de actualizar el sistema con dist-upgrade.
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+     \# apt-get update\\
+     \# apt-get dist-upgrade\\
+     Reading Package Lists... Done\\
+     Building Dependency Tree... Done\\
+     Calculating Upgrade... Done\\
+     The following NEW packages will be installed:\\
+       cpp-2.95 cron exim gcc-2.95 libident libopenldap-runtime libopenldap1\\
+       libpcre2 logrotate mailx\\
+     The following packages have been kept back\\
+       lilo\\
+     The following packages will be upgraded\\
+       adduser ae apt autoconf cpp debhelper dpkg-dev esound esound-common ftp gcc\\
+       indent ipchains isapnptools libaudiofile-dev libaudiofile0 libesd0\\
+       libesd0-dev libgtk1.2 libgtk1.2-dev liblockfile1 libnewt0 liborbit-dev\\
+       liborbit0 libstdc++2.10-glibc2.2 libtiff3g libtiff3g-dev modconf orbit\\
+     31 packages upgraded, 10 newly installed, 0 to remove and 1 not upgraded.\\
+     Need to get 0B/7098kB of archives. After unpacking 3118kB will be used.\\
+ } \vspace*{0.5cm} } } 
+
+           dist-upgrade, además de realizar las acciones de upgrade, trata
+           inteligentemente los cambios de dependencias debidos a las nuevas
+           versiones de paquetes.  apt-get tiene un sistema «inteligente» de
+           resolución de conflictos, y si es necesario tratará de actualizar
+           los paquetes más importantes a costa de los menos importantes. El
+           fichero \texttt{/etc/apt/sources.list} contiene la lista de sitios desde los
+           que descargar los ficheros de paquetes. 
+
+\subsection*{Eliminando archivos de paquete no utilizados: apt-get clean y autoclean}
+
+Cuando APT instala un paquete, descarga los archivos necesarios de los servidores enlistados en \texttt{/etc/apt/sources}, estos a su vez son guardados en un depósito local (\texttt{/var/cache/apt/archives/}), y de ahí se procede con la instalación.
+
+Con el tiempo el depósito puede crecer y ocupar mucho espacio en disco. Afortunadamente, APT provee de herramientas para manejar su depósito local: apt-get, clean y autoclean.
+
+\texttt{apt-get clean} elimina todo excepto los archivos "lock" de \texttt{/var/cache/apt/archives/} y \texttt{/var/cache/apt/archives/partial/}. Así, si necesita reinstalar un paquete APT, lo descargará de nueva cuenta.
+
+\texttt{apt-get autoclean} elimina sólo los archivos que no pueden ser descargados de nuevo.
+
+\subsection*{Acciones Útiles para conocer sobre los Paquetes}
+\subsubsection*{Obtener Información de un Paquete}
+
+ ¿Cómo se puede saber el nombre de un paquete que se quiere instalar?
+
+Por ejemplo, suponga que quiere revivir la gloria de la época dorada del Atari 2600. Quiere utilizar APT para instalar un emulador de Atari, y después bajar algunos juegos, puede hacer lo siguiente:
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+     \# apt-cache search atari\\
+     atari-fdisk-cross - Partition editor for Atari (running on non-Atari)\\
+     circuslinux - The clowns are trying to pop balloons to score points!\\
+     madbomber - A Kaboom! clone\\
+     tcs - Character set translator.\\
+     atari800 - Atari emulator for svgalib/X/curses\\
+     stella - Atari 2600 Emulator for X windows\\
+     xmess-x - X binaries for Multi-Emulator Super System\\
+ } \vspace*{0.5cm} } } 
+
+Hemos encontrado muchos paquetes relacionados con lo que se esta buscando. Para obtener mayor información de un paquete específico, puede hacer lo siguiente:
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+     \# apt-cache show stella\\
+     Package: stella\\
+     Priority: extra\\
+     Section: non-free/otherosfs\\
+     Installed-Size: 830\\
+     Maintainer: Tom Lear <tom@trap.mtview.ca.us>\\
+     Architecture: i386\\
+     version: 1.1-2\\
+     Depends: libc6 (>= 2.1), libstdc++2.10, xlib6g (>= 3.3.5-1)\\
+     Filename: dists/potato/non-free/binary-i386/otherosfs/stella\_1.1-2.deb\\
+     Size: 483430\\
+     MD5sum: 11b3e86a41a60fa1c4b334dd96c1d4b5\\
+     Description: Atari 2600 Emulator for X windows\\
+      Stella is a portable emulator of the old Atari 2600 video-game console\\
+      written in C++. You can play most Atari 2600 games with it. The latest\\
+      news, code and binaries for Stella can be found at:\\
+      http://www4.ncsu.edu/~bwmott/2600\\
+ } \vspace*{0.5cm} } } 
+
+Observe varias cosas.
+
+Existe un campo que le indica el tamaño del paquete una vez instalado (Installed-Size).
+Existe un campo descripción, que le indica ``qué contiene el paquete'' (campo Description).
+Exsite un campo que le indica el nombre del archivo del paquete (Filename).
+
+
+
+\subsubsection*{Utilizando dpkg para conocer los nombres de paquetes}
+
+Uno de los caminos para conocer el nombre de un paquete es saber el nombre de un archivo importante que sea contenido por ese paquete. Por ejemplo, para conocer el paquete que ofrece ciertos archivos ".h" puede ejecutar:
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+     \# dpkg -S stdio.h\\
+     libc6-dev: /usr/include/stdio.h\\
+     libc6-dev: /usr/include/bits/stdio.h\\
+     perl: /usr/lib/perl/5.6.0/CORE/nostdio.h\\
+ } \vspace*{0.5cm} } } 
+
+o:
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+     \# dpkg -S /usr/include/stdio.h \\
+     libc6-dev: /usr/include/stdio.h \\
+ } \vspace*{0.5cm} } } 
+
+Para averiguar los nombres de paquetes instalados en su sistema, lo cual es útil por ejemplo, si planea limpiar su disco duro, ejecuta:
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+     \# dpkg -l | grep mozilla \\
+     ii  mozilla-browse 0.9.6-7        Mozilla Web Browser \\
+ } \vspace*{0.5cm} } } 
+
+El problema con este comando radica en que puede ``truncar'' el nombre del programa. En el ejemplo anterior, el nombre completo del paquete es mozilla-browser. Para arreglar esto, puede utilizar las variables de ambiente COLUMNS de este modo:
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+     \$ COLUMNS=132 dpkg -l | grep mozilla \\
+     ii  mozilla-browser             0.9.6-7                     Mozilla Web Browser - core and browser \\
+ } \vspace*{0.5cm} } } 
+
+O la descripción del paquete, o parte de ella para encontrar el nombre completo. Como se muestra a continuación:
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+     \# apt-cache search "Mozilla Web Browser" \\
+     mozilla-browser - Mozilla Web Browser \\
+ } \vspace*{0.5cm} } } 
+
+
+
+Si se necesita instalar un paquete, y no puede saber como se llama al buscarlo con apt-cache, pero se sabe el nombre de un archivo que pertenece al paquete, entonces se puede utilizar \texttt{apt-file} para encontrar el nombre del paquete que se busca. Esto se hace de la siguiente manera:
+
+{\tt     \$ apt-file search filename}
+
+Trabaja de manera similar a \texttt{dpkg -S}, pero tambien muestra paquetes sin instalar que contengan ese archivo. Puede también ser utilizado para saber que paquetes contiene archivos de inclusión para la compilación de ciertos programas.
+
+También puede enlistar el contenido de un paquete ejecutando:
+
+   {\tt  \$ apt-file list packagename}
+
+\texttt{apt-file} mantiene una base de datos sobre que archivos tiene cada paquete, tal como auto-apt lo hace y necesita estar al día. Esto se hace asi:
+
+     {\tt\# apt-file update}
+
+
+\subsection*{Conocer el Listado de Archivos que Contiene un Paquete}
+
+
+Para conocer el listado de archivos que un paquete provee, utilice el comando \texttt{dpkg -L nombre-de-paquete}.
+
+
+Ejemplo :
+
+\colorbox{grey}{\parbox[t]{0.95\linewidth}{ \vspace*{0.5cm} {\tt
+\# dpkg -L xtrlock \\
+/. \\
+/usr \\
+/usr/bin \\
+/usr/bin/xtrlock \\
+/usr/share \\
+/usr/share/man \\
+/usr/share/man/man1 \\
+/usr/share/man/man1/xtrlock.1x.gz \\
+/usr/share/doc \\
+/usr/share/doc/xtrlock \\
+/usr/share/doc/xtrlock/copyright \\
+/usr/share/doc/xtrlock/changelog.gz \\
+/usr/share/doc/xtrlock/README.Debian.gz \\
+/usr/lib \\
+/usr/lib/menu \\
+/usr/lib/menu/xtrlock \\
+/usr/share/doc/xtrlock/changelog.Debian.gz \\
+ } \vspace*{0.5cm} } } 
+
+
+
+\section*{Licencia}
+
+Este texto fue creado por Miriam Tamara Lechner y se encuentra bajo 
+Licencia Creative Commons Atribución-CompartirDerivadasIgual 3.0 Unported
+
+\end{document}
