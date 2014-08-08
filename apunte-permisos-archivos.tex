@@ -16,8 +16,8 @@
 % Titulo 
 \makeatletter
 {\color{bl} \centering \huge \sc \textbf{
-Archivos, tipos y atributos \\
-\large \vspace*{-8pt} \color{black} Una introducción a las atributos de archivos en GNU/Linux
+Sistemas de archivos; archivos, tipos y atributos \\
+\large \vspace*{-8pt} \color{black} Una introducción a los sistemas de archivos y atributos de archivos en GNU/Linux
  \vspace*{8pt} }\par}
  \makeatother
 
@@ -36,7 +36,7 @@ Archivos, tipos y atributos \\
 \fancyhf{} % clear all header and footer fields
 \fancypagestyle{plain}{\fancyhf{}}
   	\pagestyle{fancy}
- 	\lhead{\footnotesize Archivos, tipos y atributos - Departamento de Ingeniería de Computadoras}
+ 	\lhead{\footnotesize Sistemas de archivos; archivos, tipos y atributos - Departamento de Ingeniería de Computadoras}
  	\rhead{\footnotesize \thepage\ }	% "Page 1 of 2"
 
 \def\ti#1#2{\texttt{#1} & #2 \\ }
@@ -201,6 +201,10 @@ Lo anterior, puede ser útil cuando nos sentimos desconcertados al eliminar un
 archivo y notar que aún no se ha liberado el espacio... entonces recordamos que,
 tal vez, exista otro nombre para esa misma ``bolsa de bytes''.
 
+Los inodos son almacenados dentro del mismo sistema de archivos, lo cual 
+implica que un porcentaje del espacio disponible será utilizado por el 
+sistema de archivos en sí mismo. 
+
 \section*{Tipos de archivos}
 Si nos preguntáramos rápidamente cuál de los siguientes elementos existen 
 dentro de un sistema de archivos: 
@@ -248,9 +252,10 @@ asigna significado a su contenido; el significado de los bytes depende
 únicamente de los programas que interpretan el archivo. 
 
 \subsection*{Archivos regulares}
-No son otra cosa que una ``bolsa'' de bytes: UNIX no impone ninguna estructura 
-a su contenido. Los archivos de texto, de datos, programas ejecutables, 
-bibliotecas compartidas, son todos archivos regulares.
+No son otra cosa que una ``bolsa'' de bytes: los sistemas GNU/Linux no 
+impone ninguna estructura a su contenido. Los archivos de texto, de 
+datos, programas ejecutables, bibliotecas compartidas, serán todos 
+archivos regulares.
 
 La creación de archivos regulares sucede a través de distintos programas de 
 aplicación, por ejemplo cuando utilizamos un software de ofimática, cuando 
@@ -264,14 +269,16 @@ gráficas que provean una funcionalidad similar. Este último será el método
 utilizado por la mayoría de los usuarios normales. 
 
 \subsection*{Directorios}
-Los directorios son archivos que contienen referencias a otros archivos. 
-Podemos crear directorios a través del comando \texttt{mkdir}, y eliminarlos
-a través del comando \texttt{rmdir} si está vacío, o \texttt{rm -r} si tiene 
-contenido. 
+Los directorios \textit{son archivos} que contienen referencias a otros 
+archivos. Podemos crear directorios a través del comando \texttt{mkdir}, 
+y eliminarlos a través del comando \texttt{rmdir} si está vacío, o 
+\texttt{rm -r} si tiene contenido (o utilizando herramientas gráficas). 
 
 La estructura de un archivo de tipo directorio dependerá del sistema de 
-archivos que usemos en particular. En general las entradas ``.'' y ``..''
-se refieren al directorio actual o su padre respectivamente.  
+archivos que usemos. En general, podemos pensar un directorio como un 
+conjunto de entradas donde se corresponden nombres simbólicos e inodos. 
+En particular, las entradas ``.'' y ``..'' de dicho índice harán 
+referencia al directorio actual y a su padre respectivamente.  
 
 \fcolorbox{black}{grey}{
 \parbox[t]{1.0\linewidth}{ \vspace*{0.4cm}
@@ -308,16 +315,22 @@ Nota: el comando \texttt{touch} crea un archivo regular vacío (o bytes).
 \vspace*{0.4cm} } }
 
 
-Los \textit{nombres de archivos} contenidos dentro de un directorio, se encuentran 
-almacenados en el directorio y no en el archivo en sí mismo. Esto permite, entre otras
-cosas, que un mismo archivo tenga varios nombres distintos \textit{dentro del mismo 
-sistema de archivos}. Cada nombre es sólo una referencia, el contenido del archivo 
-será el mismo cualquiera sea el nombre que usemos para accederlo. Esto es conocido
-como ``hard link''. No debe confundirse un \textit{hard link} con una copia de archivo
-por ejemplo creada a través del comando \texttt{cp}. 
+Los \textit{nombres de archivos} contenidos dentro de un directorio, se 
+encuentran almacenados en el directorio y no en el archivo en sí mismo. 
+Esto permite, entre otras cosas, que un mismo archivo tenga varios nombres 
+distintos \textit{dentro del mismo sistema de archivos}. Cada nombre es 
+sólo una referencia, el contenido del archivo será el mismo cualquiera sea 
+el nombre que usemos para accederlo. Esto es conocido como ``enlace duro''
+(en inglés ``hard link''). No debe confundirse un \textit{enlace duro}  
+con una copia de archivo por ejemplo creada a través del comando 
+\texttt{cp}.  
 
-Un \textit{hard link} se crea a  través del comando \texttt{ln} y se elimina igual 
-que cualquier otro archivo regular, a través de el comando \texttt{rm}. 
+El primer enlace duro se crea al crear el archivo por medio de alguna 
+aplicación. En ese momento, se crea la primer entrada que hace referencia
+al archivo, dentro de un archivo de tipo directorio. A partir de ahí, los 
+\textit{enlaces duros adicionales} se crearán a través del comando 
+\texttt{ln} y se elimina igual que cualquier otro archivo regular, a 
+través de el comando \texttt{rm} (o su equivalente gráfico). 
 
 \fcolorbox{black}{grey}{
 \parbox[t]{1.0\linewidth}{ \vspace*{0.4cm}
@@ -347,12 +360,13 @@ Hoy es martes \\
 }
 \vspace*{0.4cm} } }
 
-El sistema de archivos mantendrá la cuenta de los ``hard links'' que existen 
-a un mismo archivo, decrementando el valor cada vez que se elimina una de las 
-referencias, por ejemplo a través del comando \texttt{rm}. Sólo se liberará el espacio 
-utilizado por el archivo cuando éste sea la última referencia. Podemos ver el 
-número de referencias a un archivo con el comando \texttt{stat} o el segundo campo 
-en la salida del comando \texttt{ls -l}.  
+El sistema de archivos mantendrá la cuenta de los enlaces duros que existen
+a un mismo archivo, decrementando el valor cada vez que se elimina una de 
+las referencias, por ejemplo a través del comando \texttt{rm}. Sólo se 
+liberará el espacio utilizado por el archivo cuando éste sea la última 
+referencia. Podemos ver el número de referencias a un archivo con el 
+comando \texttt{stat} o el segundo campo en la salida del comando 
+\texttt{ls -l}, entre otros.  
 
 \fcolorbox{black}{grey}{
 \parbox[t]{1.0\linewidth}{ \vspace*{0.4cm}
@@ -370,7 +384,7 @@ Hoy es martes \\
 \$ stat martes.txt  \\
   Fichero: «martes.txt» \\
   Tamaño: 27        	Bloques: 8          Bloque E/S: 4096   fichero regular \\
-Dispositivo: fe01h/65025d	Nodo-i: 5638106    \textbf{Enlaces: 1} \\
+Dispositivo: fe01h/65025d	{\bf Nodo-i: 5638106}    \textbf{Enlaces: 1} \\
 Acceso: (0644/-rw-r--r--)  Uid: ( 1000/lechnerm)   Gid: ( 1000/lechnerm) \\
       Acceso: 2014-04-05 15:22:18.812061851 -0300 \\
 Modificación: 2014-04-05 15:21:12.881692767 -0300 \\
@@ -380,7 +394,7 @@ Modificación: 2014-04-05 15:21:12.881692767 -0300 \\
 \$ stat martes.txt  \\
   Fichero: «martes.txt» \\
   Tamaño: 27        	Bloques: 8          Bloque E/S: 4096   fichero regular \\
-Dispositivo: fe01h/65025d	Nodo-i: 5638106    \textbf{Enlaces: 2} \\
+Dispositivo: fe01h/65025d	{\bf Nodo-i: 5638106}    \textbf{Enlaces: 2} \\
 Acceso: (0644/-rw-r--r--)  Uid: ( 1000/lechnerm)   Gid: ( 1000/lechnerm) \\
       Acceso: 2014-04-05 16:03:39.991411489 -0300 \\
 Modificación: 2014-04-05 15:21:12.881692767 -0300 \\
@@ -389,7 +403,7 @@ Modificación: 2014-04-05 15:21:12.881692767 -0300 \\
 \$ stat lunes.txt  \\
   Fichero: «lunes.txt» \\
   Tamaño: 27        	Bloques: 8          Bloque E/S: 4096   fichero regular \\
-Dispositivo: fe01h/65025d	Nodo-i: 5638106     \textbf{Enlaces: 2} \\
+Dispositivo: fe01h/65025d	{\bf Nodo-i: 5638106}     \textbf{Enlaces: 2} \\
 Acceso: (0644/-rw-r--r--)  Uid: ( 1000/lechnerm)   Gid: ( 1000/lechnerm) \\
       Acceso: 2014-04-05 16:03:39.991411489 -0300 \\
 Modificación: 2014-04-05 15:21:12.881692767 -0300 \\
@@ -399,7 +413,7 @@ Modificación: 2014-04-05 15:21:12.881692767 -0300 \\
 \$ stat lunes.txt  \\
   Fichero: «lunes.txt» \\
   Tamaño: 27        	Bloques: 8          Bloque E/S: 4096   fichero regular \\
-Dispositivo: fe01h/65025d	Nodo-i: 5638106     \textbf{Enlaces: 1} \\
+Dispositivo: fe01h/65025d	{\bf Nodo-i: 5638106}  \textbf{Enlaces: 1} \\
 Acceso: (0644/-rw-r--r--)  Uid: ( 1000/lechnerm)   Gid: ( 1000/lechnerm) \\
       Acceso: 2014-04-05 16:03:39.991411489 -0300 \\
 Modificación: 2014-04-05 15:21:12.881692767 -0300 \\
@@ -407,27 +421,33 @@ Modificación: 2014-04-05 15:21:12.881692767 -0300 \\
     Creación: - \\
 \$ 
 }
+Adicionalmente al número de enlaces, observe que el número de inodo 
+coincide para todos los enlaces duros. 
 \vspace*{0.4cm} } }
 
-Es importante entender que los ``hard link'' no son un tipo de archivos especial. 
-Simplemente el sistema de archivos permite crear múltiples referencias al 
-mismo conjunto de bytes. Tanto el contenido como todos las propiedades del archivo
-(propiedad, permisos, tiempos de acceso, etc). son compartidos entre todos los 
-``hard link''.  
+Es importante entender que los enlaces duros no son un tipo de archivos 
+especial. Simplemente el sistema de archivos permite crear múltiples 
+referencias al mismo conjunto de bytes. Tanto el contenido como todos las
+propiedades del archivo (propiedad, permisos, tiempos de acceso, etc). 
+son compartidos entre todos los enlaces duros.  
 
-\subsection*{Links simbólicos}
-Un \textit{link simbólico} o ``soft link'' apunta a un \textit{nombre de archivo}.
+\subsection*{Enlace simbólicos}
+Un \textit{enlace simbólico o dinámico} (en inglés ``soft link'') será un 
+tipo especial de archivo, cuyo contenido hace referencia a un 
+\textit{nombre de archivo} dentro de algún sistema de archivos. 
 Es decir el contenido de un archivo de tipo link simbólico, es una ruta 
-(en inglés ``path'') a otro archivo. La diferencia entre un ``hard link'' y un 
-``soft link'' es que, el ``hard link'' es un referencia directa a un archivo, 
-mientras que un ``soft link'' es una referencia por nombre; \textit{el link simbólico
+(en inglés ``path'') a otro archivo. La diferencia entre un enlace duro y 
+un enlace simbólico radica en que, el enlace duro es un referencia 
+directa a un archivo (a la bolsa de bytes), mientras que, un enlace 
+simbólico  es una referencia por nombre. \textit{El enlace simbólico
 es un archivo diferente del archivo al que apunta}.  
 
 
-Los links simbólicos se crean con el comando \texttt{ln -s} (se agrega la opción -s
--de soft- al comando utilizado para crear hard links), y se eliminan con el comando 
-\texttt{rm}. La creación o eliminación de un link simbólico no altera la cuenta de 
-enlaces del archivo referenciado. 
+Los enlaces simbólicos se crean a través del comando \texttt{ln -s} 
+(se agrega la opción -s -de soft- al comando utilizado para crear enlaces
+duros), y se eliminan con el comando \texttt{rm}. La creación o 
+eliminación de un link simbólico no altera la cuenta de enlaces del 
+archivo referenciado. 
 
 \fcolorbox{black}{grey}{
 \parbox[t]{1.0\linewidth}{ \vspace*{0.4cm}
@@ -441,7 +461,7 @@ Hoy es jueves \\
 \$ stat jueves.txt  \\
   Fichero: «jueves.txt» \\
   Tamaño: 14        	Bloques: 8          Bloque E/S: 4096   fichero regular \\
-Dispositivo: fe01h/65025d	Nodo-i: 5638480     \textbf{Enlaces: 1} \\
+Dispositivo: fe01h/65025d	{\bf Nodo-i: 5638480}     \textbf{Enlaces: 1} \\
 Acceso: (0644/-rw-r--r--)  Uid: ( 1000/lechnerm)   Gid: ( 1000/lechnerm) \\
       Acceso: 2014-04-05 18:55:07.134982820 -0300 \\
 Modificación: 2014-04-05 18:55:01.679118415 -0300 \\
@@ -463,7 +483,7 @@ Hoy es jueves \\
 \$ stat jueves.txt viernes.txt  \\
   Fichero: «jueves.txt» \\
   Tamaño: 14        	Bloques: 8          Bloque E/S: 4096   fichero regular \\
-Dispositivo: fe01h/65025d	Nodo-i: 5638480     \textbf{Enlaces: 1} \\
+Dispositivo: fe01h/65025d	{\bf Nodo-i: 5638480}     \textbf{Enlaces: 1} \\
 Acceso: (0644/-rw-r--r--)  Uid: ( 1000/lechnerm)   Gid: ( 1000/lechnerm) \\
       Acceso: 2014-04-05 18:55:07.134982820 -0300 \\
 Modificación: 2014-04-05 18:55:01.679118415 -0300 \\
@@ -471,7 +491,7 @@ Modificación: 2014-04-05 18:55:01.679118415 -0300 \\
     Creación: - \\
   Fichero: «viernes.txt» -> «jueves.txt» \\
   Tamaño: 10        	Bloques: 0          Bloque E/S: 4096   enlace simbólico \\
-Dispositivo: fe01h/65025d	Nodo-i: 5638483     \textbf{Enlaces: 1} \\
+Dispositivo: fe01h/65025d	{\bf Nodo-i: 5638483}     \textbf{Enlaces: 1} \\
 Acceso: (0777/lrwxrwxrwx)  Uid: ( 1000/lechnerm)   Gid: ( 1000/lechnerm) \\
       Acceso: 2014-04-05 18:55:40.738147781 -0300 \\
 Modificación: 2014-04-05 18:55:34.710297555 -0300 \\
@@ -483,21 +503,27 @@ Hoy es jueves \\
 Hoy es viernes \\
 \$ rm viernes.txt  \\
 \$  
+Adicionalmente a la cuenta de enlaces, observe que el número de inodo 
+correspondiente al enlace simbólico, difiere del número de inodo del 
+archivo al cual apunta. 
 }
 \vspace*{0.4cm} } }
 
-Al almacenar nombres de archivos los links simbólicos, a diferencia de los ``hard 
-links'', \textit{pueden hacer referencia a archivos en un sistema de archivos diferente}. A su 
-vez, estas rutas de archivos pueden ser absolutas o relativas\footnote{Una ruta absoluta
-es aquella que comienza a partir del directorio raíz /, ej. /usr/share/. Una ruta relativa
-no contiene el directorio raíz / y es relativa al directorio de trabajo actual, ej. share/}. 
+Al almacenar nombres de archivos los enlaces simbólicos, a diferencia de 
+los enlaces duros, estos \textit{pueden hacer referencia a archivos en un
+sistema de archivos diferente}. A su vez, estas rutas de archivos pueden 
+ser absolutas o relativas\footnote{Una ruta absoluta es aquella que 
+comienza a partir del directorio raíz /, ej. /usr/share/. Una ruta 
+relativa no contiene el directorio raíz / y es relativa al directorio de 
+trabajo actual, ej. share/}. 
 
-Es un error común pensar que el primer argumento del comando \texttt{ln -s} tiene algo que 
-ver con el directorio de trabajo actual. Este no es el caso, \texttt{ln} simplemente tomará 
-ese argumento literalmente como el destino del link simbólico. 
+Es un error común pensar que el primer argumento del comando \texttt{ln -s}
+tiene algo que ver con el directorio de trabajo actual. Este no es el 
+caso, \texttt{ln} simplemente tomará ese argumento literalmente como el 
+destino del enlace simbólico. 
 
-Se debe tener en cuenta que al eliminar el archivo referenciado, el link simbólico sigue existiendo, 
-haciendo referencia a un archivo inexistente. 
+Se debe tener en cuenta que al eliminar el archivo referenciado, el enlace
+simbólico sigue existiendo, haciendo referencia a un archivo inexistente. 
 
 \subsection*{Código de tipos de archivos}
 Varios comandos del sistema GNU/Linux, como ser \texttt{ls} y \texttt{stat}, utilizan un código 
