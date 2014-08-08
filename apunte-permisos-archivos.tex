@@ -126,8 +126,45 @@ Nos limitaremos pues, a sistemas de archivos que permiten su estudio e
 implementación libre. En particular hemos mencionado en asignaturas previas
 los sistemas de archivos ext2, ext3 y ext4. 
 
-\subsection*{Inodo}
-El concepto de Inodo se extiende más allá de la implementación de los   
+\subsection*{Nodo-I (Inodo)}
+En las implementaciones de sistemas de archivos en sistemas de tipo UNIX, tales
+como ext2, ext3 y ext4 existe el concepto de Nodo-I (o Inodo). El inodo es una
+estructura de datos que contiene información clave (permisos, fechas, ubicación, entre otros, \textit{pero NO el nombre}) necesaria para que el sistema 
+operativo pueda manipular un archivo en particular. Dado que el nombre 
+simbólico (es decir, aquél legible y utilizable por seres humanos) no está 
+almacenado dentro del Nodo-I, muchos nombres podrán estar asociados a un 
+Nodo-I en particular (a estas asociaciones las llamaremos \textit{enlaces 
+duros} mas adelante). Sin embargo, un Nodo-I activo podrá estar asociado a sólo
+un archivo a la vez, y cada archivo será controlado por sólo un Nodo-I. 
+
+De este modo, y de manera simplista, podemos considerar que un sistema de 
+archivos será un conjunto de Nodo-I y un índice que permite asociar nombres
+simbólicos a dichos Nodo-I. Cada inodo estará identificado mediante un número.
+Podemos observar dicho número a través de varios comandos, quizá el más 
+sencillo es ``\texttt{ls -i}'', en el que la opción {\tt -i} indica al 
+comando {\tt ls} mostrar el número de Nodo-I asociado a cada archivo: 
+
+\fcolorbox{black}{grey}{
+\parbox[t]{1.0\linewidth}{ \vspace*{0.4cm}
+{\bf Ejemplo:} \\
+\texttt{
+\$ ls -i /tmp\\
+658627 ComoAdquirirTarjetaSomosUnco.pdf\\
+658640 D is for Digital (2012) Kernighan.epub\\
+658629 hellwig-reprint.pdf\\
+658620 Horarios\_Tecnicaturas\_2C-2014\_4\_.pdf\\
+656656 kde-lechnerm\\
+658617 ksocket-lechnerm\\
+658633 Linux in the Workplace How to Use Linux in Your Workplace.pdf\\
+658615 orbit-lechnerm\\
+}
+\vspace*{0.4cm} } }
+
+
+
+Desde el punto de vista del administrador, y relativo a estos conceptos, es
+importante tener en cuenta que: \textit{el conjunto de inodos es finito} y 
+solo relativo a un sistema de archivos. 
 
 \section*{Tipos de archivos}
 Si nos preguntáramos rápidamente cuál de los siguientes elementos existen 
