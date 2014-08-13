@@ -112,7 +112,6 @@ Dentro del directorio home de cersei, crear un archivo de texto:
 	con stat. ¿Cuándo se libera efectivamente el espacio utilizado por el
 	archivo?
 	* ¿Existe alguna forma de reconocer cuál fue el primer enlace creado?
-
 	
 Ejercicio 5
 -----------
@@ -126,7 +125,17 @@ Permisos.
 	archivos?
 	* ¿Que debería conocer un usuario normal acerca de dichos permisos?
 
+
 Ejercicio 6
+-----------
+¿Qué sucede con las extensiones de archivos (.pdf, .txt, etc.) en los sistemas 
+GNU/Linux? ¿El sistema hace alguna interpretación de las mismas? ¿El comando 
+file utiliza las extensiones para determinar el tipo de archivos? ¿Es 
+importante la extensión para las aplicaciones? 
+Piense por ejemplo en las aplicaciones gráficas. ¿Qué sucede si a un archivo, 
+digamos .pdf, le borramos la extensión como parte del nombre? 
+
+Ejercicio 7
 -----------
 _Discuta_ qué cuestiones relativas a los sistemas de archivos y a los archivos, 
 tipos y propiedades, deberían ser informadas a los usuarios. 
