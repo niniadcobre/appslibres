@@ -7,6 +7,7 @@ tipos y formatos de archivos.
 
 
 Ejercicio 1
+-----------
 a) ¿Qué sistemas de archivos existen creados sobre memorias de almacenamiento 
 masivo en la máquina actual? Lístelos incluyendo archivo de dispositivo, 
 punto de montaje y sistema de archivos utilizado. 
@@ -50,6 +51,21 @@ almacenados en un sistema de archivos en particular.
 
 f) Mencione nombres de sistemas de archivos utilizados en CD y/o DVD. 
 
+Ejercicio 2
+-----------
+a) Utilice la opción -type del comando find para ubicar todos los archivos de 
+cada tipo posible (utilice la página man de find para determinar los tipos
+posibles). Responda:
 
+	* ¿Cuántos archivos de cada tipo hay en el sistema? Ordene por cantidad.
+	* ¿Observa algún patrón de ubicación de cada tipo de archivos? 
+
+b) Repita la búsqueda por tipo de archivos pero esta vez aplique el comando 
+file a cada archivo. Utilice la opción -exec de find para este propósito.
+Responda: 
+	
+	* ¿Para qué sirve el comando file? Describa brevemente cómo funciona. 
+	* ¿Sobre qué tipo de archivos el resultado de file es totalmente 
+	heterogéneo? ¿Tiene sentido?
 
 
