@@ -5,7 +5,6 @@ TP1: Revisión Sistemas de archivos,
 tipos y formatos de archivos. 
 ***********************************
 
-
 Ejercicio 1
 -----------
 a) ¿Qué sistemas de archivos existen creados sobre memorias de almacenamiento 
@@ -48,7 +47,6 @@ archivos al momento de crearlos? Observe el manual del comando mkfs.ext4 por
 ejemplo. ¿Para qué serviría? Piense en el tamaño promedio de los archivos 
 almacenados en un sistema de archivos en particular. 
 
-
 f) Mencione nombres de sistemas de archivos utilizados en CD y/o DVD. 
 
 Ejercicio 2
@@ -59,6 +57,12 @@ posibles). Responda:
 
 	* ¿Cuántos archivos de cada tipo hay en el sistema? Ordene por cantidad.
 	* ¿Observa algún patrón de ubicación de cada tipo de archivos? 
+	* ¿Cuántos tipos de archivos posibles existen en GNU/Linux?
+
+Ayuda1: si lo prefiere, agregue la opción -ls para observar las propiedades de 
+	los archivos.
+Ayuda2: los mensajes de error puede ser obviados haciendo la redirección 
+	2>/dev/null al final del comando find. 
 
 b) Repita la búsqueda por tipo de archivos pero esta vez aplique el comando 
 file a cada archivo. Utilice la opción -exec de find para este propósito.
@@ -68,4 +72,58 @@ Responda:
 	* ¿Sobre qué tipo de archivos el resultado de file es totalmente 
 	heterogéneo? ¿Tiene sentido?
 
+Ejercicio 3
+-----------
+* Crear el usuario cersei. Crear tres archivos de texto como dicho usuario 
+  dentro de su directorio home. 
 
+* Se le ha solicitado publicar, utilizando el servidor web Apache, el contenido 
+  del directorio /home/cersei. Tal que utilizando http://_IP_/homecersei en un 
+  navegador web, se visualice el contenido del directorio. Resuelva el problema
+  utilizando enlaces simbólicos. 
+  _IP_ debe ser reemplazada por la dirección IPV4 de la máquina en cuestión. 
+  Ayuda: el directorio /var/www/ contiene aquello que será publicado por el 
+  servidor Apache, bajo una configuración predeterminada.  Verifique el 
+  funcionamiento.
+
+* Sobre lo anterior:
+	- ¿Pertenece el enlace simbólico al mismo sistema de archivos que el 
+	directorio home de cersei?
+	- ¿Podría resolverse esto creando un enlace fuerte/duro? 
+	- ¿Existe alguna objeción a la seguridad de la solución planteada? 
+	- ¿Que usos potenciales observa para los enlaces simbólicos? 
+	
+	
+Ejercicio 4
+-----------
+Dentro del directorio home de cersei, crear un archivo de texto:
+	* Observar las propiedades del archivo utilizando stat: ¿cuál es el 
+	número de inodo? ¿Cuántos enlaces existen a dicho archivo?
+	* Agregue dos nuevos enlaces fuertes/duros para el archivo recién 
+	creado. Vuelva a observar las propiedades de cada uno de ellos con stat.
+	¿Cuál es el número de inodo para c/u? ¿Que sucede con los tiempos de
+	acceso? ¿Tamaño? 
+	* Modifique el contenido de alguno de los archivos, observe qué sucede
+	con el contenido de los otros enlaces. ¿Qué conclusión saca?
+	* Elimine un enlace, verifique el decremento de la cuenta de enlaces 
+	con stat. ¿Cuándo se libera efectivamente el espacio utilizado por el
+	archivo?
+	* ¿Existe alguna forma de reconocer cuál fue el primer enlace creado?
+
+	
+Ejercicio 5
+-----------
+Permisos. 
+	* ¿Cómo se agrupan los permisos de archivos? ¿Cuáles son los posibles 
+	permisos? 
+	* ¿Quién puede modificar la propiedad, esto es dueño y grupo, de un 
+	archivo?
+	* ¿Existe desde la interfaz gráfica un modo en que los usuarios 
+	normales puedan observar/modificar los 	permisos y propiedad de 
+	archivos?
+	* ¿Que debería conocer un usuario normal acerca de dichos permisos?
+
+Ejercicio 6
+-----------
+_Discuta_ qué cuestiones relativas a los sistemas de archivos y a los archivos, 
+tipos y propiedades, deberían ser informadas a los usuarios. 
