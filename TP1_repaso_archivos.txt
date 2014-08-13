@@ -35,9 +35,12 @@ d) Sea el siguiente script:
 	que se encuentra en dicho directorio con el comando pwd antes de 
 	proceder, ejecute el script anterior. 
 	* ¿Cuál es la utilización actual del directorio /home? ¿Qué error indica
-	el script al finalizar? ¿Por qué cree que sucede esto? Ayuda: desmonte y 	monte el sistema de archivo de en /home, vuelva a listar con tune2fs
+	el script al finalizar? ¿Por qué cree que sucede esto? Ayuda: desmonte y
+ 	monte el sistema de archivo de en /home, vuelva a listar con tune2fs
 	el estado de los parámetros del sistema de archivos.  
-	* Desmonte el sistema de archivos en /home y re-creelo usando mkfs.ext4. 	Vuelva a montar el sistema de archivos. Investigue qué uso tiene el 
+	* Desmonte el sistema de archivos en /home y re-creelo usando mkfs.ext4.
+	Vuelva a montar el sistema de archivos. Investigue qué uso tiene el 
+
 	directorio "lost+found" que fue creado junto con el sistema de archivos
 	recientemente y su relación con el comando fsck y el concepto de inodos.
 
