@@ -8,15 +8,23 @@ software.
 NOTA: Los ejercicios deben ser realizados en su totalidad en las máquinas 
 propuestas para laboratorio. 
 
-
 Ejercicio 1 
 Indique cuáles son los repositorios actualmente configurados para ser utilizado
 por el conjunto de comandos apt. Relativo a esto ¿Cuál es la primera actividad 
 que un administrador debe realizar previo a Instalar/actualizar/remover 
 paquetes de software? ¿Por qué? ¿Que inconvenientes pueden surgir al no hacerlo?
 
-
 Ejercicio 2
+Explique brevemente el objetivo y diferencias entre: dpkg/apt y/o rpm/yum. 
+
+Ejercicio 3 
+Liste los archivos binarios instalados por apt. Describa brevemente para qué se
+utiliza cada uno de ellos. 
+
+Ejercicio 4
+Obtenga la lista de todos los paquetes instalados.
+
+Ejercicio 5
 Con qué comando podemos obtener toda la información requerida a continuación 
 sobre por ejemplo, libreoffice: 
 	3.a) ¿Qué funcionalidad provee?
@@ -31,35 +39,32 @@ sobre por ejemplo, libreoffice:
 información? ¿Es esperable que utilicen un shell para acceder a la misma? 
 ¿Necesitará privilegios especiales para acceder a esta información?
 
-
-Ejercicio 3
+Ejercicio 6
 Explique brevemente con sus palabras cómo funcionan las dependencias de software
 en los sistemas de paquetes como rpm, o deb. ¿Es esta información relevante para
 usuarios no administradores? 
 
-Ejercicio 4
-Obtenga la lista de todos los paquetes instalados.
-
-Ejercicio 5
-Un profesor de matemáticas no indica que necesita un software, que vió en un 
+Ejercicio 7
+Un profesor de matemáticas nos indica que necesita un software, que vio en un 
 congreso que se llama algo así como máxima. ¿Cómo podemos obtener información 
-acerca de la disponibilidad de dicho software en el sistema o su posible 
-instalación? 
+acerca de la disponibilidad de dicho software en los repositorios del sistema en
+donde se pretende instalar el software?
 
-Ejercicio 6
+Ejercicio 8
 Un usuario no administrador nos dice que él usaba un programa para crear 
 panorámicas a partir de fotos, que buscaba en /usr/bin/hugin. ¿Cómo podemos 
 obtener a qué paquete puede pertenecer el binario en cuestión? Considere ambos
 casos: el paquete está instalado, el paquete no está instalado. ¿Es esperable 
 que un usuario nos de la ruta completa al binario que pretende utilizar?
 
-Ejericio 
-Se nos a proporcionado el siguiente link http://www.stellarium.org/ para 
+Ejercicio  9
+Se nos a proporcionado el siguiente enlace http://www.stellarium.org/ para 
 descargar e instalar la aplicación. ¿Cuál sería el modo correcto de proceder?
 
 Ejercicio 10
 Observe la página man de apt-get y explique qué diferencia hay entre la opción 
-remove y purge. ¿Qué sucede con las dependencias al remover software? 
+remove y purge. ¿Qué sucede con las dependencias al remover un paquete de 
+software? 
 
 Ejercicio 11
 Usted nota que otro administrador ha agregado la siguiente línea a la 
@@ -70,15 +75,10 @@ deb http://dl.google.com/linux/deb/ stable non-free main
 ¿Qué puede decir al respecto? 
 
 Ejercicio 12
-Software que no esta en los repos
+Dado que no existe conexión a ningún repositorio en ciertas computadoras de la 
+organización se ha establecido el uso de un DVD con el contenido de repositorios. ¿Existe alguna forma de utilizar dicho medio y por ejemplo el administrador
+de paquetes apt?
 
 Ejercicio 13
-dpkg vs apt, rpm vs yum. 
-
-Ejercicio 
-Agregar un CD/DVD a los repos 
-
-
-Ejercicio 
 ¿Es importante instruir al usuario sobre la administración de software? ¿Qué 
 privilegios son necesarios para administrar software? 
