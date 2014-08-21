@@ -1,0 +1,101 @@
+%%% LaTeX Template: Article/Thesis/etc. with colored headings and special fonts
+%%%
+%%% Source: http://www.howtotex.com/
+
+\documentclass[12pt]{article}
+
+
+\usepackage{apuntes-estilo}
+\usepackage{fancyhdr,lastpage}
+
+
+
+\def\maketitle{
+
+% Titulo 
+ \makeatletter
+ {\color{bl} \centering \huge \sc \textbf{
+Trabajo práctico N 2 \\
+\large \vspace*{-8pt} \color{black} Formato Interno de archivos
+ \vspace*{8pt} }\par}
+ \makeatother
+
+
+% Autor
+ \makeatletter
+ {\centering \small 
+	Aplicaciones Libres\\
+ 	Departamento de Ingeniería de Computadoras \\
+ 	Facultad de Informática - Universidad Nacional del Comahue \\
+ 	\vspace{20pt} }
+ \makeatother
+
+}
+
+% Custom headers and footers
+\fancyhf{} % clear all header and footer fields
+\fancypagestyle{plain}{\fancyhf{}}
+  	\pagestyle{fancy}
+ 	\lhead{\footnotesize TP N 2 - Aplicaciones Libres}
+ 	\rhead{\footnotesize \thepage\ }	% "Page 1 of 2"
+
+\def\ti#1#2{\texttt{#1} & #2 \\ }
+
+
+
+\begin{document}
+
+\thispagestyle{empty}
+\maketitle
+\setlength{\parindent}{0pt}
+
+
+\section*{Introducción}
+Hemos definido un archivo regular como un flujo de bytes. Este flujo de bytes
+tendrá sentido al ser interpretado por determinadas aplicaciones. De este modo, 
+si queremos visualizar el contenido de un archivo, digamos pdf, no intentaremos
+volcarlo directamente sobre la terminal, por ejemplo a través del comando cat, 
+sino que utilizaremos un programa específico que comprenda ese formato, por ejemplo 
+evince o xpdf. 
+
+Ahora bien, con el fin de observar mas de cerca ese flujo de bytes, de hecho para 
+observar el contenido byte a byte de un archivo particular, podemos utilizar el 
+comando od (octal dump). Utilizaremos esta herramienta para adentrarnos en 
+la comprensión de los formatos internos de archivos.  
+
+\section*{El caso más sencillo: archivos de texto}
+Dado que el formato interno de un archivo de textos es el flujo de bytes más
+sencillo de analizar, intentaremos a través de su análisis extraer una serie 
+de conclusiones acerca del formato interno de archivos en general y algunas 
+cuestiones de interoperabilidad. 
+
+\begin{enumerate}
+\item Cree un archivo de texto pequeño (al menos dos líneas) de contenido 
+      arbitrario con su editor favorito, guárdelo como archivo1
+\item ¿ Qué formato interno indica el comando file sobre archivo1 ? 
+\item ¿ Qué aplicaciones podría utilizar para visualizar el contenido de archivo1 ?
+\item Observe el contenido de archivo1 utilizando: ``{\tt od -c archivo1}''. ¿Observa
+      información adicional a la que vemos a través de otras aplicaciones, como 
+      puede ser cat o algún editor de texto? ¿Qué representa esa información?
+\item Observe el contenido de archivo1 utilizando: ``{\tt od -b archivo1}''. En este
+      caso observamos el contenido numérico de cada byte. Cada grupo de tres
+      dígitos octales mostrado formara indica el contenido de un byte. De este modo, 
+      podemos observar el flujo de bits que componen un archivo de texto, sin 
+      interpretación alguna. 
+\end{enumerate}
+Ahora cabe preguntarse. ¿Cómo es que un byte almacenado con valor octal 
+141 (01100001), al ser visualizado por un editor se ve como el caracter ``a''? 
+Esto sucede porque la aplicación que lo muestra hace una interpretación de esos
+bits utilizando un código. Observe la salida de ``file archivo1'' nuevamente y
+la referencia al sistema de codificación utilizado por el archivo. 
+\begin{enumerate}
+\item Observando el contenido numérico de cada byte nuevamente ({\tt od -b}), 
+compare los número observados con la tabla de caracteres ASCII 
+(http://en.wikipedia.org/wiki/ASCII) y corrobore con la salida de {\tt od -c} 
+para el mismo archivo.
+\item ¿Cómo se llaman y qué función cumplen los caracteres de control observados
+en la salidas anteriores? 
+\end{enumerate}
+      
+
+\end{document}
