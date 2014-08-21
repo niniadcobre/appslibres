@@ -1,0 +1,49 @@
+Trabajo Práctico : Aplicaciones Libres para Diseño Gráfico
+
+Se necesita hacer una migración en un estudio de diseño gráico
+asistido por computador.
+La diseñadora grafica principal nos explica lo que actualmente
+realizan y con qué lo realizan.
+
+Se deben encontrar reemplazos libres para realizar las mismas tareas.
+Además, se debe analizar que tipos de archivos manejan las
+aplicaciones propietaras mencionadas. Obtener archivos ejemplos de
+esos formatos, y verficiar que las aplicaciones libres que se definan
+como reemplazo lo puedan manejar.
+
+
+Lo siguiente es un extracto de lo que la diseñadora gráfica nos ha
+enviado como especificacion de la forma de trabajo actual [ NOTA: este
+extracto es real ] :
+
+
+"Bueno con respecto a lo que me preguntas te digo tres programas que
+utilizo mucho:
+Uno es illustrator para manejar archivos vectoriales.
+El otro es photoshop para la manipulación de imágenes.
+y el tercero InDesign para generar diseño de archivos editoriales.
+
+Con Illustrator generalmente trabajamos los logos, creamos piezas
+simples de impresión como un Flyer, maquetamos webs para pasarle
+después al programador, yo dibujo jajaja cuando mi jefe no me ve;
+hacemos adaptaciones de, por ejemplo, avisos que ya salieron (que se
+publicaron) para otros medios, diseñamos para plataformas digitales
+(cosas para facebook y newsletters).
+
+Con photoshop le achicamos la cintura a Susana, re dimensionamos las
+imágenes (por ejemplo una imagen que imprime a 15 cm de ancho ponele
+tiene que tener 300dpi a ese tamaño, para web en el mismo tamaño sirve
+con que tenga 72 dpi, eso lo cambias en ps), retocamos el color (si es
+RGB para web y CMYK para imprimir) y contrastes de las imágenes,
+hacemos gif animados para alguna publicación de una publicidad en
+alguna página web (banner), y acá también dibujo jajaja.
+
+Y en InDesign diseñamos piezas con varias páginas, algo con más de 16
+páginas lo hacemos acá. Es más para trabajo editorial por que tiene
+aplicaciones que ayudan organizar el diseño de 100 páginas.
+
+Generalmente estos tres programas trabajan juntos, yo hago algo en
+InDesign  que tiene un enlace de illustrator y otro de Photoshop,
+entonces yo modifico algo desde illus (un logo ponele) y
+automáticamente se modifica en InDesign y así con los tres. Adobe te
+acostumbra a que trabajes así y después es re difícil salir de eso."
