@@ -99,13 +99,13 @@ en la salidas anteriores?
 Hasta aquí no hemos enfrentado ningún problema de interoperabilidad con otros 
 sistemas operativos. En principio el formato interno de archivos de texto no 
 pareciera representar ningún desafío a la hora de ser interpretados en aplicaciones
-de uno u otro sistema operativo, sin embargo el uso de los caracters de control 
+de uno u otro sistema operativo, sin embargo el uso de los caracteres de control 
 que representan el fin de línea es el comienzo de la discordia. 
 
 En los sistemas GNU/Linux el caracter de control que indica el fin de una línea, en 
 un archivo de texto es LF (Line Feed), visualizado como ``\textbackslash n''
 \footnote{http://en.wikipedia.org/wiki/ASCII\#ASCII\_control\_code\_chart}. Mientras
-que en los sitemas Windows (C), será la combinación de CR (Carriage Return) \textbackslash r, y 
+que en los sistemas Windows (C), será la combinación de CR (Carriage Return) \textbackslash r, y 
 LF (Line Feed) lo que determine el fin de una línea. 
 
 Vemos más de cerca esta ``insignificante'' discrepancia, y analicemos las implicaciones
@@ -140,16 +140,16 @@ Teniendo en cuenta todo lo visto hasta el momento, cabe ahora preguntarnos:
 
 \begin{enumerate}
 	\item ¿Cómo afecta esta discrepancia a los usuarios normales? Imagine un usuario de un 
-	sistema GNU/Linux que manda un mail con un archivo de texto adjunto a un usuario de un 
+	sistema GNU/Linux que manda un correo electrónico con un archivo de texto adjunto a un usuario de un 
 	sistema Microsoft Windows (C). ¿Qué sucederá cuando este último quiera abrir el archivo 
 	de texto, digamos con Notepad?
-	\item Observe editores gráficos como gedit. ¿Qué opciones relativas a estas cuestions de 
+	\item Observe editores gráficos como gedit. ¿Qué opciones relativas a estas cuestiones de 
 	interoperabilidad poseen a la hora de guardar un archivo? ¿Cuál sería el equivalente en  
 	gedit a la sentencia {\tt :bufdo! set ff=dos|w } de Vim? 
 \end{enumerate}
      
 Este es el ejemplo más sencillo que podemos analizar acerca de cómo distintas aplicaciones y 
-distintos sistemas opertaivos pueden hacer interpretaciones diferentes del formato interno de 
+distintos sistemas operativos pueden hacer interpretaciones diferentes del formato interno de 
 un archivo. Imagine ahora que en lugar de un archivo de texto, hablamos de un archivo con 
 formato enriquecido como puede ser el generado por Microsoft Office, o LibreOffice. ¿Cuántas
 discrepancias podrán surgir en la interpretación del formato? Parte de los objetivos de 
