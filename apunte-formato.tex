@@ -8,7 +8,7 @@
 \usepackage{apuntes-estilo}
 \usepackage{fancyhdr,lastpage}
 \usepackage{color,colortbl}
-\usepackage[dvips]{graphicx}
+%\usepackage[dvips]{graphicx}
 
 
 \def\maketitle{
@@ -17,6 +17,7 @@
 \makeatletter
 {\color{bl} \centering \huge \sc \textbf{
 Formatos internos de archivos\\
+Estándares Abiertos\\
 %\large \vspace*{-8pt} \color{black} Una introducción a los sistemas de archivos y atributos de archivos en GNU/Linux
  \vspace*{8pt} }\par}
  \makeatother
@@ -49,7 +50,7 @@ Formatos internos de archivos\\
 
 
 \section*{Introducción}
-En el documento anterior se describieron algunos conceptos básicos sobre tipos de archivos en sistemas UNIX. Entre otras cosas, quedó establecido que un archivo, es simplemente un flujo de bytes.  
+En el documento anterior se describieron algunos conceptos básicos sobre tipos de archivos en sistemas tipo GNU/Linux. Entre otras cosas, quedó establecido que un archivo, es simplemente un flujo de bytes.  
 
 En esta parte analizaremos el ``formato interno'' de un archivo y su relación con las aplicaciones que permiten manipularlos. Una cuestión fundamental que surge a este respecto es el de la propiedad de los datos, es decir, quién realmente los controla. 
 
@@ -57,7 +58,7 @@ Además, dado que vivimos en una época digital, mucha documentación en papel s
 
 \section*{Formato interno de los archivos}
 
-En los sistemas Unix/Linux, dado que un archivo es solo una secuencia de bytes, no hay diferencia a la hora de clasificar los archivos por su contenido. Para el núcleo todos son iguales, solo son un flujo de bytes. 
+En los sistemas tipo GNU/Linux, dado que un archivo es solo una secuencia de bytes, no hay diferencia a la hora de clasificar los archivos por su contenido. Para el núcleo todos son iguales, solo son un flujo de bytes. 
 
 Sin embargo, es diferente cómo tratan las aplicaciones a los archivos. Estás sí se encargan de verificar la naturaleza de los archivos a procesar y obrar en consecuencia al contenido de los mismos. Entonces, las aplicaciones son las que interpretan el contenido de un archivo.
 
@@ -84,11 +85,11 @@ Por otro lado, una vez que el dato fue codificado en cierto formato, puede ocurr
 
 Al hablar de formato, nos encontramos con dos grupos generales: el privativo, y el abierto o libre. El formato privativo es aquel que está protegido por una patente o derechos de autor y por ello impone ciertas restricciones. La especificación del mismo no es pública, sino que es definida y controlada por privados. Por lo tanto, no puede ser implementado por cualquiera que desee hacerlo. Además, para su uso requiere el pago de una licencia.
 
-Es muy común, recibir un documento y no poder leerlo por no poseer la aplicación que manipula el formato del mismo. Este tipo de incompatibilidad justamente se debe a que el formato utilizado es privativo. 
+Es muy común, recibir un documento y no poder leerlo por no poseer la aplicación que manipula el formato del mismo. Y al intentar obtener la aplicación nos encontramos con la situación de que debemos pagar una licencia para usarlo. Este tipo de incompatibilidad justamente se debe a que el formato utilizado es privativo. 
 
 Por otro lado, el formato libre es una especificación definida bajo una licencia libre y por ello puede ser implementado por cualquiera sin restricciones legales. Tampoco, tiene restricciones económicas para su uso. Generalmente, es patrocinado y publicado por organizaciones de estándares abiertos. Este tipo de formato es un subconjunto de los estándares abiertos, los cuales presentaremos luego.
 
-También existen varios formatos, que aunque algunos los consideran ``híbridos'', para otros son privativos. En estos formatos, las especificaciones son públicas, pero los programas que interpretan esos formatos deben pagar una licencia para hacer uso de ese formato en forma legal. Por ejemplo, este es el caso del formato mp3.
+También existen varios formatos, que aunque algunos los consideran “híbridos”, para otros son privativos. En estos formatos, las especificaciones son públicas, pero ciertos usos, por ejemplo comercial, del software que lo manipule, puede requerir (según el país y la validez de las patentes) del pago de una licencia. Este es el caso del formato de archivos mp3, en donde podemos encontrar implementaciones libres que lo manipulan (por ejemplo LAME\footnote{http://es.wikipedia.org/wiki/LAME_(codificador)}). Sin embargo, en Argentina, no podríamos vender nuestro propio reproductor de mp3 sin pagar la licencia apropiada\footnote{http://mp3licensing.com/help/developers.html\#51}, aún cuando en él utilicemos una implementación libre. 
 
 Una de las cuestiones que surge acerca del uso de formatos propietarios, es la de la propiedad\footnote{http://es.wikipedia.org/wiki/Formato\_propietario}. Aunque el usuario posea la información, si esta es almacenada en un formato en el que el proveedor impone restricciones, no podrá extraerla si no utiliza el software controlado por dicho proveedor. Por lo cual finalmente el control de la información en realidad no lo tiene el usuario. Además, si el proveedor lanza al mercado nuevas versiones del software o decide dejar de fabricar el producto, toda la información del usuario quedará ligada a un formato obsoleto.  
 
@@ -111,7 +112,7 @@ Existen varias definiciones de lo que es un Estándar abierto, y no hay una que 
 
 Tomando como base esta definición, vemos que si se utiliza un Estándar Abierto es posible intercambiar la información, independientemente del software que se use. Además, la independencia del software asegura que aunque pasen los años e incluso el software que se usó para generarla no exista, la información va a poder ser accedida por cualquier otro software que cumpla con el estándar. Entonces, una especificación pública y abierta garantiza la preservación, durabilidad, integridad y reusabilidad de la información sin restricciones\footnote{http://ftacademy.org/standards}. 
 
-Por otro lado, los Estándares Abiertos favorecen la competencia en el mercado y promueven la innovación. Un ejemplo de esto es Internet mismo, en donde la propia naturaleza de los estándares estabiliza una plataforma sobre la cual los competidores pueden crear soluciones innovadoras y interoperables. 
+Por otro lado, los Estándares Abiertos favorecen la competencia en el mercado y promueven la innovación. Un ejemplo de esto es Internet mismo, en donde la propia naturaleza de los estándares estabiliza una plataforma sobre la cual los competidores pueden crear soluciones innovadoras e interoperables. 
  
 \section*{Uso de Estándares Abiertos en el Estado Público}
 
@@ -119,7 +120,7 @@ El Estado Público como administrador de los recursos de todos los ciudadanos de
 \begin{itemize}
 \item Para asegurar el acceso a la información sin importar el tiempo que pase, incluso aunque el software utilizado para producirla sea obsoleto.
 
-\item Para asegurar el acceso libre de todos los ciudadanos a los datos a la información pública, evitando que estos tengan que usar y/o comprar el software utilizado para producir la información. Así el Estado evita actuar como promotor del producto del fabricante.
+\item Para asegurar el acceso libre de todos los ciudadanos a la información pública, evitando que estos tengan que usar y/o comprar el software utilizado para producir la información. Así el Estado evita actuar como promotor del producto del fabricante.
 
 \item Para poder compartir datos entre las administraciones nacionales, provinciales y municipales. Esto asegura la interoperabilidad.
 
@@ -128,7 +129,6 @@ El Estado Público como administrador de los recursos de todos los ciudadanos de
 \item Para tener la posibilidad de auditar el funcionamiento de un software que use un formato libre. En el caso en que utilice un formato cerrado, debe confiar en su funcionamiento y en que se mantenga privada la información que mantiene.
 
 \item Para asegurar la privacidad de la información. El uso de formatos cerrados crea un riesgo de privacidad de quien elabora el documento en el que no hay seguridad de que las partes supuestamente borradas hayan sido efectivamente removidas y no solo marcadas como borradas y por lo tanto permanezcan en el documento. 
-
 \end{itemize}
 
 A este respecto, son varios los países que han empezado a utilizar formatos abiertos:
@@ -138,9 +138,9 @@ A este respecto, son varios los países que han empezado a utilizar formatos abi
 \item En Uruguay, el 8 de enero de 2014 fue publicada la Ley Nº 19179 ``Software libre y formatos abiertos en el estado'', la cual obliga a cualquier organismo dependiente o ligado al Estado a ``distribuir toda información en al menos un formato abierto, estándar y libre.'' Además ``Todo pedido de información deberá ser aceptado en al menos un formato abierto y estándar''\footnote{http://www.parlamento.gub.uy/leyes/AccesoTextoLey.asp?Ley=19179}.
 \item En Bélgica, el 23 de junio de 2006, el Gobierno Federal decidió que el formato OpenDocument fuese obligatorio a partir de septiembre de 2008. Además Bélgica es el primer estado en el mundo que prohíbe de facto el uso de formatos propietarios.
 \item En Holanda, en noviembre de 2007 se estableció, por ley, una fecha límite para que las administraciones públicas adopten estándares abiertos.
-\item En España la ley 11/2007 de ``Acceso Electrónico de los ciudadanos a los Servicios Públicos'' establece que las Administraciones Públicas deben utilizar estándares abiertos y, en forma complementaria, estándares que sean de uso generalizado por parte de los ciudadanos. Esta norma es aplicada junto con el Real Decreto 4/2010\footnote{http://www.boe.es/boe/dias/2010/01/29/pdfs/BOE-A-2010-1331.pdf} por el que se regula el Esquema Nacional de Interoperabilidad en el ámbito de la Administración Electrónica y la Norma Técnica de Interoperabilidad de Catálogo de estándares\footnote{https://www.boe.es/diario_boe/txt.php?id=BOE-A-2012-13501}.
+\item En España la ley 11/2007 de ``Acceso Electrónico de los ciudadanos a los Servicios Públicos'' establece que las Administraciones Públicas deben utilizar estándares abiertos y, en forma complementaria, estándares que sean de uso generalizado por parte de los ciudadanos. Esta norma es aplicada junto con el Real Decreto 4/2010\footnote{http://www.boe.es/boe/dias/2010/01/29/pdfs/BOE-A-2010-1331.pdf} por el que se regula el Esquema Nacional de Interoperabilidad en el ámbito de la Administración Electrónica y la Norma Técnica de Interoperabilidad de Catálogo de estándares\footnote{https://www.boe.es/diario\_boe/txt.php?id=BOE-A-2012-13501}.
 \item En el Reino Unido, recientemente se anunció el uso de formatos abierto para todas las oficinas de gobierno\footnote{https://www.gov.uk/government/news/open-document-formats-selected-to-meet-user-needs}.
-\item En Argentina también se ha promovido el uso de estándares abiertos. Los diputados Eduardo Macaluse, Claudio Lozano, Ricardo Cuccovillo y Nélida Beluos firmaron el proyecto que lleva el número 5914-D-2010\footnote{http://www1.hcdn.gov.ar/proyxml/expediente.asp?fundamentos=si&numexp=2161-D-2013} para promover el uso obligatorio de Estándares Abiertos en los sistemas de información del Estado, con el objetivo de garantizar la interoperabilidad en los sistemas de información utilizados en todas sus dependencias entre sí y con los particulares.
+\item En Argentina también se ha promovido el uso de estándares abiertos. Los diputados Eduardo Macaluse, Claudio Lozano, Ricardo Cuccovillo y Nélida Beluos firmaron el proyecto que lleva el número 5914-D-2010\footnote{http://www1.hcdn.gov.ar/proyxml/expediente.asp?fundamentos=si\&numexp=2161-D-2013} para promover el uso obligatorio de Estándares Abiertos en los sistemas de información del Estado, con el objetivo de garantizar la interoperabilidad en los sistemas de información utilizados en todas sus dependencias entre sí y con los particulares.
 \end{itemize}
 
 También es digno de mención un evento que se celebra el último miércoles de marzo de cada año. Este es el ``\textbf{Día de los Documentos Libres}''. Ese día, las personas que creen en el acceso justo a la tecnología de las comunicaciones, enseñan, actúan y se manifiestan para concientizar a otros sobre los formatos y estándares abiertos.\footnote{http://documentfreedom.org/index.es.html}
@@ -148,23 +148,16 @@ También es digno de mención un evento que se celebra el último miércoles de 
 
 \section*{Migracion de documentos a formatos abiertos}
 
-
-%http://www.cepal.org/ddpe/publicaciones/xml/9/46119/w465.pdf
-
-%http://www.parlamento.gub.uy/repartidos/AccesoRepartidos.asp?Url=/repartidos/camara/d2012120211-01.htm
-%http://alertas.directoriolegislativo.org/?post_type=noticia&n=14670
-
-%http://www.cendi.gov/publications/CENDI_PresFormats_WhitePaper_03092007.pdf
-%http://www.muylinux.com/2013/12/24/uruguay-software-libre
-
-
-\section*{Bibliografía}
+Aunque el uso de formatos abiertos supone muchas ventajas, en muchas organizaciones la información ya está almacenada en formatos cerrados. Por lo tanto, al decidir comenzar a usar formatos abiertos, surge la necesidad de migrar de un formato a otro. Y esto no siempre es sencillo. 
+Algunos problemas que pueden presentarse son:
 \begin{itemize}
-\item Sovereign Software - Open Standards, Free Software, and the Internet (Georg C.F. Greve)
+\item Interoperabilidad de documentos: el formato cerrado por definición es un formato protegido por una patente o derechos de autor. Por lo tanto no siempre se logra conocer toda la especificación del mismo. Entonces, una técnica que se utiliza es la de ingeniería inversa\footnote{http://es.wikipedia.org/wiki/Ingeniería\_inversa} con el objetivo de descubrir cómo funciona un determinado formato, para luego generar código propio que permita manipularlo. Sin embargo, no siempre es posible llegar a conocer la especificación completa, por lo cual al migrar de un formato a otro, no es posible obtener la información de la misma manera que se encontraba con el formato cerrado.
+\item Resistencia del usuario al cambio. Muchos tienen miedo a lo desconocido y su primera reacción es negativa. Entonces es necesario instrumentar mecanismos para minimizar esta resistencia.
 \end{itemize}
 
+
 \section*{Licencia}
-Copyright (C) 2014 Lechner Miriam, Claudia Rozas.
+Copyright (C) 2014 Claudia Rozas, Miriam Lechner.
 
 Se concede autorización para copiar, distribuir y/o modificar este documento
 bajo los términos de la Licencia Creative Commons Atribución-CompartirDerivadasIgual 3.0 Unported. 
