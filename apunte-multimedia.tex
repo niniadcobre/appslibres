@@ -1,0 +1,126 @@
+%%% LaTeX Template: Article/Thesis/etc. with colored headings and special fonts
+%%%
+%%% Source: http://www.howtotex.com/
+
+\documentclass[12pt]{article}
+
+
+\usepackage{apuntes-estilo}
+\usepackage{fancyhdr,lastpage}
+\usepackage{color,colortbl}
+\usepackage{verbatim}
+
+\def\maketitle{
+
+% Titulo 
+ \makeatletter
+ {\color{bl} \centering \huge \sc \textbf{
+  Aplicaciones Multimedia\\ 
+\large \vspace*{-8pt} \color{black} Introducción a aplicaciones multimedia. 
+ \vspace*{8pt} }\par}
+ \makeatother
+
+% Autor
+\makeatletter
+ {\centering \small 
+ 	Departamento de Ingeniería de Computadoras \\
+ 	Facultad de Informática - Universidad Nacional del Comahue \\
+ 	\vspace{20pt} }
+ \makeatother
+
+}
+
+% Custom headers and footers
+\fancyhf{} % clear all header and footer fields
+\fancypagestyle{plain}{\fancyhf{}}
+  	\pagestyle{fancy}
+ 	\lhead{\footnotesize Aplicacione multimedia - Departamento de Ingeniería de Computadoras}
+ 	\rhead{\footnotesize \thepage\ }	% ''Page 1 of 2''
+
+\def\ti#1#2{\texttt{#1} & #2 \\ }
+
+
+
+\begin{document}
+
+\thispagestyle{empty}
+\maketitle
+\setlength{\parindent}{0pt}
+
+\section*{Definición}
+
+Para comprender el alcance de la palabra multimedia analizaremos distintas 
+definiciones. Según la Real Academima Española, multimedia se refiere a un 
+adjetivo que inidica: ``que utiliza conjunta y simultáneamente diversos 
+medios, como imágenes, sonidos y texto, en la transmisión de una 
+información.''\cite{raemm}
+
+Desde un punto de vista etimológico podemos decir que: multimedia se 
+refiere a: multi y media. Tal que multi se refiere a  muchos, y media a: 
+substancia intermedia a través de la cual algo es transmitido o 
+transportado. Un medio de comunicación masivo, tal como un periódico o 
+la televisión.\cite{ramyer}
+
+Estas definiciones nos das un primer acercamiento al alcance de la palabra
+multimedia. Sin embargo, si nos preguntamos qué aspectos de este alcance 
+serían importanes cubrir desde el punto de vista de {\it aplicaciones 
+multimediales}, o desde la realidad de un administrador de sistemas y un 
+entorno de trabajo convencional, como puede ser una oficina, todavía queda
+mucho por aclarar. 
+
+En este sentido la definición de Franklin Kuo, establece dos aspectos del
+concepto de multimedia en los cuales haremos foco:
+
+\begin{itemize}
+\item Multimedia se refiere a la representación de medios mixtos de información
+-texto, datos, imágenes, audio y video- como señales digitales. 
+\item Comunicaciones multimedia, se refiere a la tecnología requerida para 
+manipular, transmitir y controlar estas señales audiovisuales a través de un 
+canal de comunicación.\cite{frankuo}
+\end{itemize}
+
+Teniendo en cuenta estos dos aspectos, si nos concentramos en multimedia 
+dentro computadora aislada, es decir,  sin conexión a red (ya sea LAN o 
+Internet), entonces nos enfocaremos por un lado en la representación de 
+datos multimediales, utilizando los conocimientos previos sobre formato interno
+de archivos. Por otro lado, en las {\it aplicaciones multimedia} que nos 
+permien {\it generar} dichos contenidos. 
+
+Sin embargo, dado la expansión de Internet, y el desarrollo de redes de área 
+local (LAN)  Luego trataremos algunos aspectos de la transmisión de esos
+datos multimediales, considerando el creciente uso de redes LAN y WAN. 
+
+\section*{Tipos de medios}
+\subsection*{Estáticos, medio discreto independiente del tiempo}
+\subsection*{Dinámicos, medio contínuo dependiente del tiempo}
+
+\section*{Transmisión}
+
+
+\section*{Aspectos Legales}
+
+\begin{thebibliography}{1}
+
+\bibitem{raemm}
+Real Academia Española, \emph{Multimedia}.\hskip 1em plus
+0.5em minus 0.4em\url{http://lema.rae.es/drae/?val=multimedia}
+
+\bibitem{ramyer}
+Ramesh Yerraballi, \emph{Multimedia Systems, Concepts Standards and 
+Practice}.\hskip 1em plus  0.5em minus 0.4em
+\url{http://users.ece.utexas.edu/~ryerraballi/MSB/Contents.html}
+
+\bibitem{frankuo}
+Franklin F. Kuo, J. Joaquin Garcia Luna-Aceves y Wolfgang Effelsberg. 
+\emph{Multimedia Communications: Protocols and Applications}.\hskip 1em plus
+  0.5em minus 0.4em\relax Publisher: Prentice Hall; ISBN-13: 978-0138569235  
+
+\end{thebibliography}{1}
+
+\section*{Licencia}
+Copyright (C) 2014 Lechner Miriam.
+
+Se concede autorización para copiar, distribuir y/o modificar este documento
+bajo los términos de la Licencia Creative Commons Atribución-CompartirDerivadasIgual 3.0 Unported. 
+
+\end{document}
