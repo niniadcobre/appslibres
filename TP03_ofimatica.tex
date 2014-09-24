@@ -1,0 +1,191 @@
+%%% LaTeX Template: Article/Thesis/etc. with colored headings and special fonts
+%%%
+%%% Source: http://www.howtotex.com/
+
+\documentclass[12pt]{article}
+
+
+\usepackage{apuntes-estilo}
+\usepackage{fancyhdr,lastpage}
+\usepackage{hyperref}
+
+
+\def\maketitle{
+
+% Titulo 
+ \makeatletter
+ {\color{bl} \centering \huge \sc \textbf{
+Trabajo práctico N 3 \\
+\large \vspace*{-8pt} \color{black} Ofimática
+ \vspace*{8pt} }\par}
+ \makeatother
+
+
+% Autor
+ \makeatletter
+ {\centering \small 
+	Aplicaciones Libres\\
+ 	Departamento de Ingeniería de Computadoras \\
+ 	Facultad de Informática - Universidad Nacional del Comahue \\
+ 	\vspace{20pt} }
+ \makeatother
+
+}
+
+% Custom headers and footers
+\fancyhf{} % clear all header and footer fields
+\fancypagestyle{plain}{\fancyhf{}}
+  	\pagestyle{fancy}
+ 	\lhead{\footnotesize TP N 3 - Aplicaciones Libres}
+ 	\rhead{\footnotesize \thepage\ }	% "Page 1 of 2"
+
+\def\ti#1#2{\texttt{#1} & #2 \\ }
+
+
+
+\begin{document}
+
+\thispagestyle{empty}
+\maketitle
+\setlength{\parindent}{0pt}
+
+\section*{Uso de las aplicaciones de Ofimática}  
+
+En grupos de 3 integrantes deberán realizar una ``Ayuda'' para orientar a los usuarios en el uso correcto de las aplicaciones libres. Esta ayuda deberá documentarse en la wiki \url{http://asimov.fi.uncoma.edu.ar/dokuwiki}.
+
+Cada grupo trabajará sobre un conjunto de situaciones que se puede presentar ya sea en el uso de un procesador de texto, una planilla de cálculo o al realizar una presentación. Deberá determinar para cada situación qué característica de la aplicación necesita conocer el usuario y una explicación con respecto a cómo debe usarla.  
+
+La explicación que se elabore debe ser en relación al uso de LibreOffice, OpenOffice y Abiword o Gnumeric según corresponda. En todos los casos, deberán utilizar la última versión disponible de las aplicaciones. Además deberá incluir qué consideraciones de compatibilidad debe tener el usuario si la información luego debe manipularse con MS Office.
+
+Para confeccionar la ayuda, además de la explicación textual puede utilizar todos los recursos que considere necesarios, como ejemplos, imágenes, etc. Además, indique cómo sería la explicación que debería brindar si el usuario en lugar de consultar la Ayuda disponible, hiciera la consulta telefónicamente.
+
+La instalación y uso de las aplicaciones debe realizarse en la máquina virtual que a tal efecto proveerá la Cátedra.
+
+\section*{\textbf{Grupo 1: Procesador de Texto}}
+
+\textbf{\underline{Usuario 1}}: consulta cómo debe hacer para cambiar el tipo de letra, su tamaño, color, y subrayado.
+
+\textbf{\underline{Usuario 2}}: necesita establecer una sangría de primera línea para cierto párrafo y un espaciado encima del párrafo de una \textit{x} cantidad de centímetros.
+
+\textbf{\underline{Usuario 3}}: necesita separar el texto en dos columnas, estableciendo distinto ancho para las mismas y una separación de \textit{x} cms entre las mismas. Además necesita que el texto en las columnas tenga separación silábica.
+
+\textbf{\underline{Usuario 4}}: necesita configurar el tamaño de la página, y el tamaño de los márgenes. Además necesita agregar un pie de página, configurándolo con una altura específica, en el cual va a incluir la numeración automática de las páginas. También va a incorporar el encabezado, con una altura específica en el cual quiere insertar una imagen desde un archivo.
+
+\textbf{\underline{Usuario 5}}: necesita agregar una tabla a un documento. La misma es una nómina de los 15 empleados de la empresa, en la que deben constar los siguientes datos:
+\begin{itemize}
+\item Codigo 
+\item Apellido 
+\item Categoria 
+\item Horas 
+\item Precio Hora 
+\end{itemize}
+El usuario necesita que la primera fila tenga una sola celda con un sombreado “gris claro”. El resto de las filas tendrá las cinco celdas para cada uno de los datos solicitados.
+
+\textbf{\underline{Usuario 6}}: el usuario está trabajando con una tabla y necesita que el texto que está colocando en una celda tenga orientación vertical. Además, necesita agregar 5 filas a la tabla que editó antes y 1 columna más y consulta además cómo se elimina una fila o una columna. También necesita modificar el alto de una fila y el ancho de cada una de las columnas.
+
+\textbf{\underline{Usuario 7}}: el usuario ha editado un texto y desea incorporar una imagen al mismo desde un archivo. La misma debe quedar contenida en el párrafo, en el lado derecho del mismo. Además, desea ampliar el tamaño de la misma, manteniendo la proporción y recortarle a la derecha unos centímetros. La imagen también deberá tener un borde color rojo de 2,5 ptos.
+
+\textbf{\underline{Usuario 8}}: está editando un texto y necesita incorporar un esquema numerado con el siguiente formato: 
+\begin{itemize}
+\item Primer nivel: con números del 1 en adelante, seguido por un guión.
+\item Segundo nivel: con letras mayúsculas, desde la A en adelante, seguido por un paréntesis de cierre.
+\item Tercer nivel: con numeración romana desde uno en adelante, seguido por un paréntesis de cierre.
+\item Cuarto nivel: con letras minúsculas, desde la a en adelante, seguido por un punto.
+\item Quinto nivel: con una viñeta. El símbolo es un asterisco.
+\end{itemize}
+
+\textbf{\underline{Usuario 9}}: necesita incorporar un código de barras a su documento y no encuentra una fuente que le permite hacerlo.
+
+\textbf{\underline{Usuario 10}}: necesita agregar en su documento un hipervínculo a una página .
+
+\section*{\textbf{Grupo 2: Procesador de Texto}}
+
+\textbf{\underline{Usuario 1}}: necesita hacer una plantilla que contenga en el encabezado el membrete de la empresa, el cual incluye el nombre de la empresa, logotipo y dirección. Además la plantilla debe incluir una tabla. 
+Además de crear la plantilla, el usuario necesita saber cómo utilizarla después para crear a partir de ella otros documentos.
+
+\textbf{\underline{Usuario 2}}: al realizar informes habitualmente utiliza el mismo formato para las distintas partes que lo conforman, a saber, el título principal, títulos secundarios, párrafos simples, títulos en tablas, etc. Deberá explicarle cómo se define un estilo, cómo aplicarlo a la parte del documento que corresponda, cómo modificarlo y eliminarlo.
+
+\textbf{\underline{Usuario 3}}: en su equipo tiene instalado MS Office y ahora dado que se planea la migración a alguna de las aplicaciones libres y ha comenzado a utilizarla consulta sobre los atajos, si son los mismos o son diferentes.
+
+\textbf{\underline{Usuario 4}}: necesita crear un conjunto de cartas que tienen la misma información, lo único que se modifica es a quién va dirigido. La información de las empresas (Razón Social, Dirección, Responsable) a las que se necesita enviar la carta se encuentra en una planilla de cálculo.
+Además de la nota, necesita hacer el sobre correspondiente a cada carta a enviar. Para hacer esto, consulta sobre cómo crear e imprimir el sobre, cómo realizar el documento base de la carta, el manejo de la fuente de datos y cómo hacer para realizar automáticamente todas las cartas e imprimirlas.
+
+\textbf{\underline{Usuario 5}}: necesita establecer distintos formatos en los encabezados y pie de página de las páginas pares e impares.
+
+\textbf{\underline{Usuario 6}}: necesita crear un documento con distintas secciones. Cada una de ellas tiene un encabezado de página diferente, en donde se hace referencia al título de la sección, mientras que el pie de página es igual para todas ya que solo contiene el número de página. 
+
+\textbf{\underline{Usuario 7}}: necesita que un documento sea revisado por otras 2 personas, pero quiere ver los cambios que estos realicen. Necesita conocer cómo habilitar el control de cambios de modo que las otras dos personas sugieran cambios pero solo él los acepte o rechace, y cómo hacer para luego  aceptarlos o rechazarlos para dejar el documento final.
+
+\textbf{\underline{Usuario 8}}: necesita comparar dos versiones de un mismo documento y ver las diferencias entre los mismos. 
+
+\textbf{\underline{Usuario 9}}: está editando un texto y necesita incorporar una lista con viñetas utilizando como símbolo un rombo. Además quiere conocer cómo quitar el formato de lista con viñetas.
+
+\textbf{\underline{Usuario 10}}: era un usuario de MS Office y ahora que está utilizando el procesador de texto libre, no encuentra las fuentes que habitualmente usa, tales como Time New Roman y Arial.
+
+\section*{\textbf{Grupo 3: Planilla de Cálculo}}
+
+\textbf{\underline{Usuario 1}}: necesita ajustar automáticamente el ancho de una columna para que se adapte al texto más largo y el alto de una fila. Además consulta sobre cómo modificar manualmente el tamaño de las filas y las columnas.
+
+\textbf{\underline{Usuario 2}}: necesita que el texto en una celda se adapte al tamaño de la misma de dos maneras diferentes. Por un lado reduciendo el tamaño de la fuente automáticamente y por otro lado haciendo que el texto se ajuste al ancho por medio de dividirse en varias líneas.
+
+\textbf{\underline{Usuario 3}}: necesita crear una fórmula en la que se sumen dos valores que se encuentra en dos celdas adyacentes y que dicha fórmula se aplique en todas las filas siguientes. Por otro lado necesita agregar una fórmula en la que se multipliquen dos valores que se encuentran en distintas celdas. La fórmula deberá luego aplicarse a todas las filas siguientes, pero manteniendo fija la referencia a una de las celdas referenciadas en la fórmula.
+
+\textbf{\underline{Usuario 4}}: necesita agregar una columna entre medio de dos columnas que poseen datos. También debe agregar una fila entre medio de otras con información.
+
+\textbf{\underline{Usuario 5}}: necesita establecer un formato específico para una celda dependiendo del valor que tenga la misma, de manera que la misma tenga un sombreado de color y un tamaño y tipo de fuente determinada. También consulta sobre cómo eliminar el formato aplicado.
+
+\textbf{\underline{Usuario 6}}: necesita contar cierta cantidad de celdas en un rango que cumplan una determinada condición. Además necesita sumar el valor de las celdas en un rango que cumplen una condición. 
+
+\textbf{\underline{Usuario 7}}: dada la información en una hoja, necesita realizar un gráfico del tipo columnas agrupadas con efecto 3D. No necesita mostrar leyendas y quiere agregar un título acorde. Además el gráfico debe estar en una hoja nueva.
+
+\textbf{\underline{Usuario 8}}: necesita escribir en una columna una serie de números cuyo incremento es de 10 en 10. Por otro lado en otra columna necesita escribir una serie de fechas cuyo incremento es de uno en uno. Además, necesita crear otra serie en la que cada elemento sea el doble del anterior. 
+
+\textbf{\underline{Usuario 9}}: tiene una hoja de cálculo en las que hay ciertos datos críticos que no deben ser modificados, para lo cual necesita protegerla.
+
+\textbf{\underline{Usuario 10}}: era un usuario de MS Office y ahora que está utilizando una aplicación libre de planillas de cálculo, no puede cambiar el tipo de referencia (absoluta, relativa o mixta) presionando la tecla F4.
+
+\section*{\textbf{Grupo 4: Planilla de Cálculo}}
+
+\textbf{\underline{Usuario 1}}: necesita combinar o unir 5 celdas en una fila.
+
+\textbf{\underline{Usuario 2}}: tiene en una hoja ciertos datos para los cuales quiere impedir que otros vean las fórmulas que ha aplicado.
+
+\textbf{\underline{Usuario 3}}: necesita agregar más hojas de cálculo y asignarles un nombre a las mismas. Además quiere cambiar de posición una de ellas.
+
+\textbf{\underline{Usuario 4}}: tiene cierta información de la cual solo quiere visualizar las filas en las que se cumple una determinada condición en una de las columnas. Por otro lado, en otra planilla quiere visualizar solo las filas en las que el valor de una columna está en un rango de valores específicos.
+
+\textbf{\underline{Usuario 5}}: necesita ordenar los datos que tiene en una planilla de acuerdo al contenido de dos columnas.
+
+\textbf{\underline{Usuario 6}}: necesita establecer que al imprimir, en cada hoja se va a repetir como título lo contenido en una fila. 
+
+\textbf{\underline{Usuario 7}}: necesita restringir la entrada de datos en un conjunto de celdas a un intervalo determinado de fechas.
+
+\textbf{\underline{Usuario 8}}: necesita realizar un análisis de los datos en una planilla. Para ello sin insertar fórmulas manualmente, quiere resumir los datos mostrando subtotales y  totales de la información, usando sumas, promedios, mínimos y máximos.
+
+\textbf{\underline{Usuario 9}}: necesita realizar un análisis de los datos en una planilla, organizando y resumiendo los datos según diferentes criterios en forma interactiva. Para esto debe utilizar Tablas Dinámicas pero no entiende cómo hacerlas y actualizarlas cuando la fuente de información se modifica.
+
+\textbf{\underline{Usuario 10}}: era un usuario de MS Office y ahora que está utilizando una aplicación libre de planillas de cálculo, no encuentra las fuentes que habitualmente usa, tales como Time New Roman y Arial.
+
+\section*{\textbf{Grupo 5: Presentación}}
+
+\textbf{\underline{Usuario 1}}: necesita definir para todas las diapositivas que van a conformar su presentación, el fondo, el color, el tipo de fuentes y el pie de páginas.
+
+\textbf{\underline{Usuario 2}}: necesita saber cómo agregar, eliminar y duplicar una diapositiva.
+
+\textbf{\underline{Usuario 3}}: necesita agregar un efecto de transición entre diapositivas de la presentación. Además quiere agregar efectos a cada elemento de una diapositiva.
+
+\textbf{\underline{Usuario 4}}: necesita agregar a su presentación varias imágenes desde un archivo,  modificar el tamaño y la posición de las mismas. En uno de los casos también va a ser necesario que recorte la imagen. 
+
+\textbf{\underline{Usuario 5}}: necesita incorporar una lista con viñetas utilizando como símbolo un asterisco. Además quiere conocer cómo quitar el formato de lista con viñetas.
+
+\textbf{\underline{Usuario 6}}: necesita reproducir un audio durante toda la presentación. 
+
+\textbf{\underline{Usuario 7}}: tiene una diapositiva en la que los distintos elementos se encuentran uno encima del otro y necesita ordenarlos. Algunos de ellos tienen que verse adelante de otros. 
+
+\textbf{\underline{Usuario 8}}: necesita agregar en una diapositiva un cuadro de texto al que deberá asignarle un color de relleno, cambiar el grosor del tipo de línea y establecer un tipo de fuente determinada. También consulta sobre cómo se agrega el texto al cuadro.
+
+\textbf{\underline{Usuario 9}}: necesita agregar una línea cuyos dos extremos finalicen con una punta de flecha. Además quiere establecer un color para la flecha y modificar el grosor de la misma.
+
+\textbf{\underline{Usuario 10}}: necesita saber para qué sirven la distintas vistas de la presentación (Normal, Esquema, etc). Además quiere saber cómo debe hacer para que su presentación pueda abrirse en cualquier otro equipo.
+ 
+\end{document}
