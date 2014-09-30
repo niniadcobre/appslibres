@@ -47,3 +47,12 @@ InDesign  que tiene un enlace de illustrator y otro de Photoshop,
 entonces yo modifico algo desde illus (un logo ponele) y
 automáticamente se modifica en InDesign y así con los tres. Adobe te
 acostumbra a que trabajes así y después es re difícil salir de eso."
+
+
+
+Investigación grupal - Multimedia / Distros:
+	Investigar las distros multimediales en base a las aplicaciones 
+	que proveen. Caracterizar las aplicaciones que proveen. 
+	http://distrowatch.com/search.php?ostype=Linux&category=Multimedia&origin=All&basedon=All&notbasedon=None&desktop=All&architecture=All&status=Active
+
+ 
