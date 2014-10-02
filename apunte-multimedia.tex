@@ -142,9 +142,9 @@ Museo del Prado, etc) han cobrado vida en los últimos años.
 interactivos, etc. 
 \item {\bf Periodismo}: La explosión de los periódicos digitales, la incorporación de dispositivos 
 multimediales en los noticieros televisivos, son algunos ejemplos. 
-\item {\bf Ingenierías, ciencias en general, medicina}: todas las ciencias se ven 
+\item {\bf Ingenierías, arquitectura, ciencias en general, medicina}: todas las ciencias se ven 
 beneficiadas por el uso de multimedia. La simulación y el modelado son un recurso 
-valioso en la investigación en general. 
+valioso en todas estas áreas del conocimiento. 
 \end{itemize}
 
 
@@ -179,11 +179,11 @@ Por otra parte, teniendo en cuenta los elementos individuales que componen un
 contenido multimedia, podemos podemos distinguir dos grandes tipos de medios: 
 
 \begin{itemize}
-\item{Estáticos, medio discreto independiente del tiempo}
+\item{Estáticos, medio discreto independiente del tiempo}: 
 Dentro de esta clase encontramos a las imágenes y gráficos fijos, y texto. La información 
 en este medio consiste exclusivamente de una secuencia de elementos individuales 
 sin un componente de tiempo.
-\item{Dinámicos, medio continuo dependiente del tiempo}
+\item{Dinámicos, medio continuo dependiente del tiempo}: 
 Aquí encontramos al sonido, animaciones y video. La información no sólo es 
 expresada por su valor individual, sino que también por el momento 
 de su ocurrencia.
@@ -205,21 +205,112 @@ que escucha u observa.\cite{ramyer}
 
 \section*{Aplicaciones multimedia}
 
-Lugares dónde obtener software: Freecode, GNU dir, etc. 
+Podríamos comenzar esta sección realizando una lista de aplicaciones 
+libres conocidas para multimedia y hacer una descripción breve de cada
+una de ellas. Sin embargo además de caer en la obsolesencia mientras 
+leemos este apunte, sería imposible ser exaustivos. Utilizaremos sólo
+un breve listado a modo de ejemplo y que al momento de escribir este 
+apunte gozan de cierta popularidad.  
 
-\subsection*{Aplicaciones para generar elementos indviduales}
+El objetivo será entonces, caracterizar las aplicaciones pensando
+siempre en nuestro rol de administradores de sistema y, en particular 
+en el asesoramiento que usualmente nos es demandado por los usuarios. No
+será nuestro objetivo ahondar en el diseño multimedial, sino obtener 
+los conocimientos básicos para poder entender la problemática, sugerir 
+posibles soluciones o simplemente ser el punto de partida para un análisis 
+más profundo cuando el entorno a administrar así lo demande. 
+
+En cada caso trataremos de identificar: 
+\begin{itemize}
+\item Funcionalidad: ¿Sirve para producir elementos individuales (discretos o contínuos) o 
+bien es una herramienta que permite la vinculación y presentación de elementos individuales? 
+\item Consumo de recursos. Necesidades de la aplicación con respecto al 
+hardware y al sistema operativo. Por ejemplo ciertas aplicaciones para generar 
+elementos de animación requieren hardware gráfico específico, otras pueden demandar 
+una conexión de red para transmitir el contenido, etc. 
+\end{itemize}
+
+\subsection*{Creación y manipulación de gráficos e imágenes estáticas}
+
+Una problemática frecuente es la necesidad de generar y manipular gráficos e imágenes 
+bidimensionales. Por citar algunos de los infinitos riquisitos posibles, un usuario 
+podría necesitar: 
+\begin{itemize}
+	\item Editar fotos. El usuario desea retocar una o cientos de imágenes capturadas
+	      con alguna cámara digital, o escaneadas. En este caso no sólo debemos pensar en el problema de 
+	      encontrar software que le permite realizar la edición, sino que también debemos
+	      pensar en el mecanismo que le permita importar las fotos como imágenes digitales
+	      dentro de su computadora para su posterior edición.    
+	\item Creación de imágenes matriciales e imágenes matriciales multicapa (como las generadas por 
+	Adobe Photoshop o Gimp).  
+	\item Cambiar el formato de una imágen. Por ejemplo pasar uno o cientos de archivos de 
+	un formato PNG a JPG. Además podría requerir asesoramiento de qué formato sería el 
+	indicado si tuviese que visualizarlo en otros sistemas operativos. 
+	\item Crear un diagrama vectorial. Por ejemplo el usuario crear un mapa conceptual, o
+	un organigrama jerárquico que represente a la organización en la que trabaja.    
+	\item Crear una gráfico vectorial (como caso general de lo anterior). Por ejemplo el 
+	usuario podría querer crear un logo para la empresa que pueda visualizarce luego en 
+	una página web.  
+	\item Tomar una captura de pantalla y editarla para luego incorporarla en una presentación. 
+\end{itemize}
+
+Deberemos tener presente al menos que existen: {\bf{\it imágenes matriciales e imágenes vectoriales}}. 
+En este sentido:  
+
+``Una imagen vectorial es una imagen digital formada por objetos geométricos independientes (segmentos, 
+polígonos, arcos, etc.), cada uno de ellos definido por distintos atributos matemáticos de forma, de 
+posición, de color, etc. Por ejemplo un círculo de color rojo quedaría definido por la posición 
+de su centro, su radio, el grosor de línea y su color.
+
+Este formato de imagen es completamente distinto al formato de las imágenes de mapa de bits, también 
+llamados imágenes matriciales, que están formados por píxeles. El interés principal de los gráficos 
+vectoriales es poder ampliar el tamaño de una imagen a voluntad sin sufrir la pérdida 
+de calidad que sufren los mapas de bits. De la misma forma, permiten mover, estirar y 
+retorcer imágenes de manera relativamente sencilla.'' \cite{wikiives}
+
+``A las imágenes en mapa de bits se las suele definir por su altura y anchura (en píxeles) y por 
+su profundidad de color (en bits por píxel), que determina el número de colores distintos que se 
+pueden almacenar en cada punto individual, y por lo tanto, en gran medida, la calidad del color de la imagen.''
+\cite{wikiimes}
+
+A esto podemos adicionar la existencia de formatos de imagen mas complejos que involucran las antes mencionadas
+como base, como ser XCF de Gimp, o PSD de Adobe Photoshop. 
+
+Analizando un poco el consumo de recursos, en líneas generales una imágen matricial ocupa mayor espacio de
+almacenamiento que su equivalente vectorial. En el primer caso, el tamaño es proporcional al 
+tamaño de la matriz de píxeles, mientras que en el segundo caso estamos hablando de representaciones
+matemáticas que no varían con el tamaño visualizado.  
+
+Si bien el procesamiento en masa, por ejemplo el escalado de cientos de imágenes, podría hacerse 
+sin la necesidad de un entorno gráfico (por ejemplo utilizando el programa convert). 
+En general, la mayoría de las aplicaciones gráficas demandarán al menos: hardware gráfico (vulgarmente una placa de video); 
+monitor para visualización; cierta capacidad de procesamiento (CPU) y memoria principal (RAM), 
+ya que las aplicaciones gráficas aún cuando nos referimos a imagenes bidimensionales, suelen consumir 
+bastantes recursos. Mecanismos de interacción. Elementos de captura de imágenes: cámaras digitales, 
+escanners, etc.  
+
+
+Gimp
+https://directory.fsf.org/wiki/GIMP
+
+Inkscape
+
+ 
+
+Mencionaremos tres aplicaciones: 
 Imagen y gráficos fijos: Gimp, Día, Inkscape (sozi)
 Animación: Tupí, Stopmotion (http://linuxstopmotion.org), Blender, 
 Entangle (http://entangle-photo.org/).
 Sonido:  
 
+\textbf{}
 \subsection*{Aplicaciones para presentar/reproducir contenidos multimediales}
 Wiki
 Audio/Video/Animación: Vlc, Mplayer. 
 Openmeeting
 Ofimática: textos, presentaciones, etc. 
 
-\subsection{Análisis de recursos}
+\subsection*{Análisis de recursos}
 CPU/RAM/IO (Almacenamiento)
 
 \section*{Transmisión}
@@ -250,6 +341,26 @@ Wikipedia en español. \emph{Multimedia}.\hskip 1em plus
 \bibitem{wikipmmen}
 Wikipedia en inglés. \emph{Multimedia}.\hskip 1em plus
   0.5em minus 0.4em\url{http://es.wikipedia.org/wiki/Multimedia}
+
+\bibitem{wikiives}
+Wikipedia en español. \emph{Gráfico Vectorial}.\hskip 1em plus
+  0.5em minus 0.4em\url{http://es.wikipedia.org/wiki/Gráfico\_vectorial}
+
+\bibitem{wikiimes}
+Wikipedia en español. \emph{Imagen de mapa de bits}.\hskip 1em plus
+  0.5em minus 0.4em\url{http://es.wikipedia.org/wiki/Imagen\_de\_mapa\_de\_bits}
+
+\end{thebibliography}{1}
+
+\section*{Licencia}
+Copyright (C) 2014 Lechner Miriam.
+
+Se concede autorización para copiar, distribuir y/o modificar este documento
+bajo los términos de la Licencia Creative Commons Atribución-CompartirDerivadasIgual 3.0 Unported. 
+
+http://creativecommons.org/licenses/by-sa/3.0/
+
+\end{document}
 
 \end{thebibliography}{1}
 
