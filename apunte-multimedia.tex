@@ -55,9 +55,14 @@ adjetivo que indica: ``que utiliza conjunta y simultáneamente diversos
 medios, como imágenes, sonidos y texto, en la transmisión de una 
 información.''\cite{raemm}
 
-\begin{center}
-\includegraphics{multimedia.png}
-\end{center}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{multimedia.png}
+\renewcommand{\figurename}{Fig.}
+\caption{https://openclipart.org/detail/201582/multimedia-by-star4clover-201582}
+\label{contexto:figura}
+\end{figure}
 
 Desde un punto de vista etimológico podemos decir que multimedia se 
 refiere a: multi y media. Tal que multi se refiere a  muchos, y media a: 
@@ -207,9 +212,9 @@ que escucha u observa.\cite{ramyer}
 
 Podríamos comenzar esta sección realizando una lista de aplicaciones 
 libres conocidas para multimedia y hacer una descripción breve de cada
-una de ellas. Sin embargo además de caer en la obsolesencia mientras 
-leemos este apunte, sería imposible ser exaustivos. Utilizaremos sólo
-un breve listado a modo de ejemplo y que al momento de escribir este 
+una de ellas. Sin embargo además de caer en la obsolescencia mientras 
+leemos este apunte, sería imposible ser exhaustivos. Utilizaremos 
+algunas aplicaciones a modo de ejemplo y, que al momento de escribir este 
 apunte gozan de cierta popularidad.  
 
 El objetivo será entonces, caracterizar las aplicaciones pensando
@@ -222,7 +227,7 @@ más profundo cuando el entorno a administrar así lo demande.
 
 En cada caso trataremos de identificar: 
 \begin{itemize}
-\item Funcionalidad: ¿Sirve para producir elementos individuales (discretos o contínuos) o 
+\item Funcionalidad: ¿Sirve para producir elementos individuales (discretos o continuos) o 
 bien es una herramienta que permite la vinculación y presentación de elementos individuales? 
 \item Consumo de recursos. Necesidades de la aplicación con respecto al 
 hardware y al sistema operativo. Por ejemplo ciertas aplicaciones para generar 
@@ -230,10 +235,10 @@ elementos de animación requieren hardware gráfico específico, otras pueden de
 una conexión de red para transmitir el contenido, etc. 
 \end{itemize}
 
-\subsection*{Creación y manipulación de gráficos e imágenes estáticas}
+\subsection*{Gráficos e imágenes estáticas}
 
 Una problemática frecuente es la necesidad de generar y manipular gráficos e imágenes 
-bidimensionales. Por citar algunos de los infinitos riquisitos posibles, un usuario 
+bidimensionales. Por citar algunos de los infinitos requisitos posibles, un usuario 
 podría necesitar: 
 \begin{itemize}
 	\item Editar fotos. El usuario desea retocar una o cientos de imágenes capturadas
@@ -243,13 +248,13 @@ podría necesitar:
 	      dentro de su computadora para su posterior edición.    
 	\item Creación de imágenes matriciales e imágenes matriciales multicapa (como las generadas por 
 	Adobe Photoshop o Gimp).  
-	\item Cambiar el formato de una imágen. Por ejemplo pasar uno o cientos de archivos de 
+	\item Cambiar el formato de una imagen. Por ejemplo pasar uno o cientos de archivos de 
 	un formato PNG a JPG. Además podría requerir asesoramiento de qué formato sería el 
 	indicado si tuviese que visualizarlo en otros sistemas operativos. 
 	\item Crear un diagrama vectorial. Por ejemplo el usuario crear un mapa conceptual, o
 	un organigrama jerárquico que represente a la organización en la que trabaja.    
 	\item Crear una gráfico vectorial (como caso general de lo anterior). Por ejemplo el 
-	usuario podría querer crear un logo para la empresa que pueda visualizarce luego en 
+	usuario podría querer crear un logo para la empresa que pueda visualizarse luego en 
 	una página web.  
 	\item Tomar una captura de pantalla y editarla para luego incorporarla en una presentación. 
 \end{itemize}
@@ -276,42 +281,82 @@ pueden almacenar en cada punto individual, y por lo tanto, en gran medida, la ca
 A esto podemos adicionar la existencia de formatos de imagen mas complejos que involucran las antes mencionadas
 como base, como ser XCF de Gimp, o PSD de Adobe Photoshop. 
 
-Analizando un poco el consumo de recursos, en líneas generales una imágen matricial ocupa mayor espacio de
-almacenamiento que su equivalente vectorial. En el primer caso, el tamaño es proporcional al 
-tamaño de la matriz de píxeles, mientras que en el segundo caso estamos hablando de representaciones
-matemáticas que no varían con el tamaño visualizado.  
+Analizando un poco el consumo de recursos, en lo que a formatos respecta, en general una 
+imagen matricial ocupa mayor espacio de almacenamiento que su equivalente vectorial. En el 
+primer caso, el tamaño es proporcional al tamaño de la matriz de píxeles (resolución) y a la
+profundidad de color de cada píxel (bits por píxel), mientras que en el segundo caso estamos 
+hablando de representaciones matemáticas que no varían con el tamaño visualizado. Si bien puede 
+darse el caso opuesto, en que la complejidad de las fórmulas matemáticas descriptivas superen 
+la versión de mapa de bits, la percepción general es la primera. 
 
-Si bien el procesamiento en masa, por ejemplo el escalado de cientos de imágenes, podría hacerse 
-sin la necesidad de un entorno gráfico (por ejemplo utilizando el programa convert). 
-En general, la mayoría de las aplicaciones gráficas demandarán al menos: hardware gráfico (vulgarmente una placa de video); 
-monitor para visualización; cierta capacidad de procesamiento (CPU) y memoria principal (RAM), 
-ya que las aplicaciones gráficas aún cuando nos referimos a imagenes bidimensionales, suelen consumir 
-bastantes recursos. Mecanismos de interacción. Elementos de captura de imágenes: cámaras digitales, 
-escanners, etc.  
+Pensando en las aplicaciones que manipulan estos formatos, en general, la mayoría demandarán al 
+menos: hardware gráfico (vulgarmente una placa de video); 
+monitor para visualización; cierta capacidad de procesamiento (CPU) y memoria principal (RAM), ya que 
+las aplicaciones gráficas, aún cuando nos referimos a imágenes bidimensionales, suelen consumir bastantes 
+recursos. Elementos de captura de imágenes: cámaras digitales, escáneres, etc.  
+Desde los requisitos del sistema operativo, si bien cierto tipo de procesamiento en masa,
+por ejemplo el escalado de cientos de imágenes, podría realizarse sin la necesidad de un
+entorno gráfico (por ejemplo utilizando el programa convert), en la mayoría de los casos será una 
+necesidad.  
 
+Algunas aplicaciones libres muy populares son Gimp \url{https://directory.fsf.org/wiki/GIMP} que permite 
+trabajar con mapas de bits, e imágenes multicapa. Inkscape \url{https://directory.fsf.org/wiki/Inkscape} 
+para imágenes vectoriales. Dia \url{https://directory.fsf.org/wiki/Dia} y Graphviz 
+\url{https://directory.fsf.org/wiki/Graphviz} para diagramas vectoriales de varios tipos (mapas mentales, 
+grafos, redes, etc). DigiKam \url{https://directory.fsf.org/wiki/DigiKam} nos permite la descarga de 
+imágenes tomadas con cámaras digitales. El comando {\tt convert} realiza varios tipos de procesamiento
+en lote (escalado, conversión de formatos, etc). Hugin \url{https://directory.fsf.org/wiki/Hugin} 
+permite la creación de panorámicas a partir de fotos individuales.  
 
-Gimp
-https://directory.fsf.org/wiki/GIMP
-
-Inkscape
 
  
+\subsection*{Sonido}
 
+El sonido es una onda continua que viaja a través del aire y que es percibida por el 
+oído humano debido a los cambios de presión generados por esta onda sobre el mismo. 
+La representación digital de esas ondas y los recursos necesarios para almacenar y 
+reproducir y manipular estos sonidos serán de interés en esta sección. 
+
+Uno de los aspectos a considerar será la representación digital de estas ondas sonoras. 
+En sí la resolución de estas ondas es infinita. Deberemos entonces pasar de una 
+señal analógica continua a alguna forma de representación discreta, posible de ser  
+almacenada numéricamente en una computadora. Este será el proceso de digitalización. 
+Por ejemplo al utilizar un grabador de sonido (ej. gnome-sound-recorder) proveniente 
+de un micrófono y guardar un archivo con esa información, estamos digitalizando la 
+onda sonora analógica proveniente del micrófono. 
+
+Sin entrar en los detalles de muestreo y cuantificación de las ondas analógicas, 
+una onda sonora será representada digitalmente por una secuencia 
+de muestras tomadas en el tiempo en distintos puntos de la onda. Cada muestra 
+tendrá un valor que representa la amplitud de la onda en ese punto del tiempo.
+La cantidad de muestras por segundo (unidad Hz) y la cantidad de bits usados 
+para la amplitud de onda (cuantificación) determinan la calidad de la 
+digitalización. Por ejemplo para un CD de audio estándar se utilizan 44100Hz
+(44100 muestras por segundo) con una cuantificación de la amplitud de 16 bits
+(65536 posibles valores para la amplitud). 
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{Sampling.png}
+\renewcommand{\figurename}{Fig.}
+\caption{http://commons.wikimedia.org/wiki/File:Signal\_Sampling.png}
+\label{contexto:figura}
+\end{figure}
+
+
+\subsection*{Video y animación}
 Mencionaremos tres aplicaciones: 
 Imagen y gráficos fijos: Gimp, Día, Inkscape (sozi)
 Animación: Tupí, Stopmotion (http://linuxstopmotion.org), Blender, 
 Entangle (http://entangle-photo.org/).
 Sonido:  
 
-\textbf{}
 \subsection*{Aplicaciones para presentar/reproducir contenidos multimediales}
 Wiki
 Audio/Video/Animación: Vlc, Mplayer. 
 Openmeeting
 Ofimática: textos, presentaciones, etc. 
-
-\subsection*{Análisis de recursos}
-CPU/RAM/IO (Almacenamiento)
 
 \section*{Transmisión}
 
