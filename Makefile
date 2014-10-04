@@ -9,4 +9,4 @@ all:
 	pdflatex TP03_ofimatica.tex
 
 clean:
-	rm *pdf *aux *log
+	rm *pdf *aux *log *out
