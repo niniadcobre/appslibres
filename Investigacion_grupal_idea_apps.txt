@@ -54,5 +54,6 @@ Investigación grupal - Multimedia / Distros:
 	Investigar las distros multimediales en base a las aplicaciones 
 	que proveen. Caracterizar las aplicaciones que proveen. 
 	http://distrowatch.com/search.php?ostype=Linux&category=Multimedia&origin=All&basedon=All&notbasedon=None&desktop=All&architecture=All&status=Active
+	identificar a nivel de formatos manipulados para vincular con la primer investigación. 
 
  
