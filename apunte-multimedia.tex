@@ -294,11 +294,15 @@ Pensando en las aplicaciones que manipulan estos formatos, en general, la mayor�
 menos: hardware gráfico (vulgarmente una placa de video); 
 monitor para visualización; cierta capacidad de procesamiento (CPU) y memoria principal (RAM), ya que 
 las aplicaciones gráficas, aún cuando nos referimos a imágenes bidimensionales, suelen consumir bastantes 
-recursos. Elementos de captura de imágenes: cámaras digitales, escáneres, etc.  
+recursos. También podríamos necesitar elementos de captura de imágenes: cámaras digitales, escáneres, etc.  
 Desde los requisitos del sistema operativo, si bien cierto tipo de procesamiento en masa,
 por ejemplo el escalado de cientos de imágenes, podría realizarse sin la necesidad de un
 entorno gráfico (por ejemplo utilizando el programa convert), en la mayoría de los casos será una 
-necesidad.  
+necesidad. Por otro lado, será necesario que el sistema operativo cuente con los controladores
+apropiados para el correcto funcionamiento del hardware, lo cual no es una tarea trivial en 
+el mundo del software libre, ya que muchos fabricantes de placas de video (y podríamos decir de hardware
+en general) no proveen controladores libres y por ende, puede que las versiones libres 
+disponibles (creadas por la comunidad) no exploten todas las características del hardware en cuestión.  
 
 Algunas aplicaciones libres muy populares que podemos mencionar en esta sección son: 
 \begin{itemize}
@@ -326,9 +330,9 @@ digital desde la computadora.
 El sonido es una onda continua que viaja a través del aire y que es percibida por el 
 oído humano debido a los cambios de presión generados por esta onda sobre el mismo. 
 La representación digital de esas ondas y los recursos necesarios para almacenar y 
-reproducir y manipular estos sonidos serán de interés en esta sección. 
+reproducir y manipular estos sonidos serán de interés en esta sección (en inglés ``digitize''). . 
 
-Uno de los aspectos a considerar será la representación digital de estas ondas sonoras. 
+Uno de los aspectos a considerar será la representación digital de estas ondas sonoras.
 En sí la resolución de estas ondas es infinita. Deberemos entonces pasar de una 
 señal analógica continua a alguna forma de representación discreta, posible de ser  
 almacenada numéricamente en una computadora. Este será el proceso de digitalización. 
@@ -355,16 +359,26 @@ digitalización. Por ejemplo para un CD de audio estándar se utilizan 44100Hz
 \label{contexto:figura}
 \end{figure}
 
+Si quisiéramos ahondar en el tema de sonido y las conversiones, deberíamos 
+incluír en nuestro análisis el proceso inverso a la digitalización, por el 
+cual un archivo digital de sonido termina produciendo una onda sonora 
+analógica. En este aspecto sólo abordaremos las necesidades de hardware
+para que esto suceda y las aplicaciones que permiten la reproducción. La
+conformación de ondas analógicas a partir de archivos de audio digital 
+queda fuera del alcance de este curso. 
+
+
+
 
 Algunos potenciales requisitos relacionados a audio:
 \begin{itemize}
+\item Reproducir sonidos de distintos tipos. 
 \item Editar un archivo de audio: recortar secciones, 
 agregar efectos de sonido, pausas, etc. 
 \item Reconocimiento de voz. 
 \item Cambios de formato: compresión de audio. 
 \item Conferencia de audio. 
 \item Captura de sonido: micrófono, instrumentos, etc. 
-\item 
 \end{itemize}
 
 \subsection*{Video y animación}
