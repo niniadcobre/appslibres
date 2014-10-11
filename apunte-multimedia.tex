@@ -1,4 +1,4 @@
-%%% LaTeX Template: Article/Thesis/etc. with colored headings and special fonts
+	%%% LaTeX Template: Article/Thesis/etc. with colored headings and special fonts
 %%%
 %%% Source: http://www.howtotex.com/
 
@@ -358,6 +358,21 @@ digitalización. Por ejemplo para un CD de audio estándar se utilizan 44100Hz
 \label{contexto:figura}
 \end{figure}
 
+Una primera deducción que podemos hacer en cuanto al consumo de recursos, y
+teniendo en cuenta el muestreo y cuantificación, es que a mayor cantidad de 
+muestras por segundo (Hz) y mayor cantidad de bits utilizadas para la
+representación de la amplitud, mayor será el tamaño del archivo digital 
+generado. A su vez, esto será inversamente proporcional a lo que sucede 
+con la calidad de la representación. 
+
+En este sentido, también debemos tener en cuenta que ciertos formatos 
+de archivo de audio ocuparán más o menos espacio de almacenamiento, dependiendo 
+de estos parámetros y del posible uso de algoritmos de compresión. Por ejemplo 
+un archivo con formato {\it wav}\footnote{http://es.wikipedia.org/wiki/Waveform\_Audio\_Format}   
+usualmente sin compresión, ocupará mayor espacio de almacenamiento que su
+equivalente {\it Ogg Vorbis}\footnote{http://www.vorbis.com/} con 
+compresión.
+
 Si quisiéramos ahondar en el tema de sonido y las conversiones, deberíamos 
 incluir en nuestro análisis el proceso inverso a la digitalización, por el 
 cual un archivo digital de sonido termina produciendo una onda sonora 
@@ -375,20 +390,45 @@ agregar efectos de sonido, pausas, etc.
 \item Reconocimiento de voz. 
 \item Cambios de formato: compresión de audio. 
 \item Conferencia de audio. 
+\item Controlar la tarjeta de sonido: volumen, efectos, etc.
 \item Captura de sonido: micrófono, instrumentos, etc. 
 \end{itemize}
 
+Los recursos de hardware necesarios dependerán de estos requisitos.  
+En general necesitaremos al menos una tarjeta de sonido que pueda 
+recibir y producir señales de audio; las mismas podrán ser integradas
+en la placa base o externas, generalmente conectadas a algún bus de
+expansión (PCI, PCIE, etc.). Desde el sistema operativo deberemos ser 
+capaces de reconocer la presencia de dicho hardware, así como también 
+los controladores del sistema operativo adecuados para el efectivo 
+funcionamiento del mismo.
 
-En cuanto a aplicaciones libres, la mayoría de las distribuciones
-ofrecen aplicaciones multimedia para reproducción de audio, podemos 
-mencionar por ejemplo:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{soundcards.png}
+\renewcommand{\figurename}{Fig.}
+\caption{http://en.wikipedia.org/wiki/File:Turtle\_Beach\_Sound\_Card\_\%28Catalina\%29.png}
+\label{contexto:figura}
+\end{figure}
+
+Las tarjetas de sonidos serán las encargadas del proceso de conversión 
+analógica/digital y viceversa, para captura/reproducción de audio, explicado 
+anteriormente. Adicionalmente, elementos analógicos como ser: parlantes y 
+micrófono serán necesarios según el caso. Dicho elementos se conectan 
+a la tarjeta de sonido a través de diferentes conectores {\it minijack}.  
+
+En cuanto a {\it aplicaciones libres} que permitan satisfacer diferentes
+requisitos relacionados a audio, podemos decir que la mayoría de las distribuciones
+ofrecen aplicaciones multimedia para reproducción, mencionaremos algunos 
+ejemplos:
 
 \begin{itemize}
 \item Rhythmbox \url{https://directory.fsf.org/wiki/Rhythmbox}. GNOME. 
 \item Amarok. \url{https://directory.fsf.org/wiki/Amarok}. KDE 
 \item Clementine. \url{https://directory.fsf.org/wiki/Clementine}. 
-\item XMMS. \url{https://directory.fsf.org/wiki/Xmms}. 
 Basado en Amarok. 
+\item XMMS. \url{https://directory.fsf.org/wiki/Xmms}. 
 \item VLC Media Player. \url{https://directory.fsf.org/wiki/VLC\_media\_player}
 Provee interfaz gráfica y en línea de comandos. 
 \item Mplayer. \url{http://www.mplayerhq.hu/}. Principalmente utilizado 
@@ -397,9 +437,41 @@ desde el intérprete de comandos, sin embargo existen interfaces gráficas
 \end{itemize}
 
 Las últimas dos aplicaciones, son más versátiles en cuánto a los formatos soportados, 
-también reproducen video y son independientes del entorno gráfico, sin embargo 
+también reproducen video y son {\it independientes del entorno gráfico}, sin embargo 
 su interfaz suele ser menos intuitiva que las primeras cuatro aplicaciones 
 mencionadas. 
+ 
+Del mismo modo, existen muchas aplicaciones para controlar el nivel del sonido, micrófono, 
+líneas de entrada, etc. Normalmente estarán asociadas al entorno gráfico, es decir suelen ser
+un componente de software parte de éste. Sin embargo existen algunas independientes como por ejemplo:
+{\tt alsamixer}. Será tarea del administrador identificar dicho software dependiendo 
+del entorno utilizado por el usuario. 
+
+Las imágenes a continuación se observan dos ejemplos clásicos de aplicaciones provistas
+como parte de entornos gráficos: {\it gnome-sound-recorder} que permite la 
+digitalización del sonido recibido desde un micrófono o dispositivo de 
+entrada conectado a la tarjeta de sonido; esta aplicación es desarrollada como 
+parte del entorno gráfico GNOME; la segunda imagen corresponde a la aplicación 
+{\it xfce-mixer} perteneciente al entorno gráfico XFCE, que permite controlar 
+distintos parámetros como el volumen de salida de la tarjeta de sonido. 
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{gnomerec.png}
+\renewcommand{\figurename}{Fig.}
+\caption{Gnome Sound Recorder}
+\label{contexto:figura}
+\end{figure}
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{xfcemix.png}
+\renewcommand{\figurename}{Fig.}
+\caption{XFCE Mixer}
+\label{contexto:figura}
+\end{figure}
 
 En cuanto a la dependencia del entorno gráfico, es bueno tener en cuenta que 
 la misma se establece a nivel de las bibliotecas compartidas, utilizadas
@@ -407,7 +479,12 @@ por la aplicación. Entonces, por ejemplo, si estamos utilizando el entorno grá
 GNOME y queremos instalar y ejecutar una aplicación que está diseñada para 
 ejecutarse en, digamos, KDE, es muy probable que tengamos que instalar 
 bibliotecas del entorno KDE y las mismas serán además ejecutadas adicionalmente 
-a las utilizadas por GNOME
+a las utilizadas por GNOME. En este sentido el administrador de sistemas deberá 
+inclinarse por sugerir aplicaciones que, o bien sean independientes, o bien 
+utilicen bibliotecas ya instaladas, con el fin de minimizar el consumo de 
+recursos. 
+
+
 
 \subsection*{Video y animación}
 Animación: Tupí, Stopmotion (http://linuxstopmotion.org), Blender, 
@@ -420,9 +497,13 @@ Entangle (http://entangle-photo.org/).
 \subsection*{Juntando todo (Authoring)}
 Wiki
 Openmeeting
+Blackboard
+Webex
 Ofimática: textos, presentaciones, etc. 
 
 \section*{Transmisión}
+
+Calidad del audio vs. tasa de datos (página 152)
 
 
 \begin{thebibliography}{1}
