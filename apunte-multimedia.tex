@@ -521,7 +521,7 @@ multiplataforma y bibliotecas para convertir, manipular y transmitir
 una amplia gama de formatos multimedia y protocolos. En particular 
 {\it avconv} es una de estas herramientas, de línea de comandos (CLI), 
 que permite distinto tipo de conversiones de audio y video, incluso 
-de una entrada en vivo. También puede convertir entre frecuencias de
+desde una entrada en vivo. También puede convertir entre frecuencias de
 muestreo arbitrarias y cambiar el tamaño de vídeo sobre la marcha 
 con un filtro polifásico de alta calidad. 
 \end{itemize}
@@ -537,6 +537,55 @@ y el formato, el análisis de los requisitos de transmisión de audio: ancho de 
 requerido, tipo de red, compresión, etc. 
 
 \subsection*{Video y animación}
+En el caso del sonido, hablabamos de una onda sonora
+que produce variaciones de presión percibidas por el oído humano, en el caso 
+de la imágen en movimiento apelaremos a las habilidades humanas de 
+percibir color y luminosidad.  
+
+Con la imágen en movimiento y su captura, el video, sucede algo similar que con 
+el sonido, en donde existirán capturas analógicas y digitales, y procesos 
+de conversión. El {\it video analógico} es representado como una señal continua, que varía con 
+el tiempo, mientras que, el {\it video digital} es representado como una secuencia 
+de imágenes digitales. Los formatos analógicos más populares son NTSC, PAL y SECAM.  
+
+El ojo humano retiene la imágen por una fracción de segundo luego de 
+que ve la imágen. Esto se conoce como {\it persistencia de la visión}, y es 
+una propiedad esencial para todas las tecnologías relacionadas a video y 
+animación. La idea será entonces, presentar imágenes individuales estáticas
+a una velocidad suficiente para que el ojo humano las integre produciendo 
+el movimiento. 
+
+Estás imágenes individuales o {\it fotogramas (frames en inglés)}, y la 
+cantidad de ellas mostradas por segundo definen uno de los parámetros a 
+tener en cuenta cuando analizamos video: {\bf fps (fotogramas por segundo)}. 
+Para darnos una idea del rango de valores que podemos encontrar para 
+este parámetro, las viejas cámaras mecánicas cargaban de seis a ocho 
+fotogramas por segundo (fps), mientras que se pueden obtener 120 fps o más para 
+las nuevas cámaras profesionales. Los estándares PAL (Europa, Asia, Australia, 
+etc.) y SECAM (Francia, Rusia, partes de África, etc.) especifican 25 fps, 
+mientras que NTSC (EE. UU., Canadá, Japón, etc.) especifica 29,97 fps. El cine 
+es más lento con una velocidad de 24fps. Para lograr la ilusión de una 
+imagen en movimiento, la velocidad mínima de carga de las imágenes es de unas 
+quince imágenes por segundo, sin embargo el ojo humano puede distinguir 
+movimiento mucho más fluida por encima de los 48 fotogramas por segundo.
+
+Otros parámetros importantes a tener en cuenta serán la {\bf resolución del video} y
+la {\it relación de aspecto}. En el caso del video digital, la resolución 
+se mide en {\it píxeles}, mientars que en el video analógico se mide en 
+líneas de barrido horizontal y vertical. El siguiente gráfico muestra la relación 
+entre estos dos parámetros para varias convenciones conocidas, y sus respectivos 
+nombres: 
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{resol.png}
+\renewcommand{\figurename}{Fig.}
+\caption{Relación de aspecto y resolución}
+\label{contexto:figura}
+\end{figure}
+
+
 Animación: Tupí, Stopmotion (http://linuxstopmotion.org), Blender, 
 
 \begin{itemize}
