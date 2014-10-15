@@ -1,0 +1,108 @@
+%%% LaTeX Template: Article/Thesis/etc. with colored headings and special fonts
+%%%
+%%% Source: http://www.howtotex.com/
+
+\documentclass[12pt]{article}
+
+
+\usepackage{apuntes-estilo}
+\usepackage{fancyhdr,lastpage}
+
+
+
+\def\maketitle{
+
+% Titulo 
+ \makeatletter
+ {\color{bl} \centering \huge \sc \textbf{
+Trabajo práctico N 4 \\
+\large \vspace*{-8pt} \color{black} Aplicaciones Multimedia 
+ \vspace*{8pt} }\par}
+ \makeatother
+
+
+% Autor
+ \makeatletter
+ {\centering \small 
+	Aplicaciones Libres\\
+ 	Departamento de Ingeniería de Computadoras \\
+ 	Facultad de Informática - Universidad Nacional del Comahue \\
+ 	\vspace{20pt} }
+ \makeatother
+
+}
+
+% Custom headers and footers
+\fancyhf{} % clear all header and footer fields
+\fancypagestyle{plain}{\fancyhf{}}
+  	\pagestyle{fancy}
+ 	\lhead{\footnotesize TP N 2 - Aplicaciones Libres}
+ 	\rhead{\footnotesize \thepage\ }	% "Page 1 of 2"
+
+\def\ti#1#2{\texttt{#1} & #2 \\ }
+
+
+
+\begin{document}
+
+\thispagestyle{empty}
+\maketitle
+\setlength{\parindent}{0pt}
+
+
+\section*{Introducción}
+El mundo de las aplicaciones multimedia es inmenso. Como administradores de 
+sistemas encontraremos cientos de requisitos diferentes sobre imagen, audio, 
+video y composición multimedial. 
+
+Este trabajo tendrá varios objetivos con respecto a multimedia:
+\begin{itemize} 
+\item Conocer terminología básica respecto a cada componente multimedial. 
+\item Conocer la problemática básica de las aplicaciones. Cómo se agrupan, cuáles
+son las funcionalidades principales. 
+\item Visualizar los recursos necesarios a nivel de hardware y software.
+\item Vincular aplicaciones con los formatos de archivos manipulados. 
+\item Vincular aplicaciones de software libre con aplicaciones utilizadas 
+como estándar de facto, posiblemente privativas. 
+\end{itemize}
+
+\section*{Descripción}
+Es habitual que comunidades de personas con fines comunes aunen esfuerzo para 
+resolver ciertos tipo de problemas, el mundo del software, y en particular el 
+mundo de los sistemas operativos GNU/Linux no es ajeno a este fenómeno. En 
+este caso, y con los objetivos mencionados anteriormente, analizaremos el 
+trabajo de comunidades de usuarios y desarrolladores de aplicaciones 
+multimediales, que han dado como resultado nuevas distribuciones GNU/Linux.  
+
+Nuesto objetivo no será promover el uso de las distribuciones en sí, sino el 
+análisis de las mismas como medio de obtener conocimiento acerca de 
+aplicaciones multimedia instaladas en ellas y la organización de las 
+mismas (forma en que están agrupadas y presentadas a los usuarios). El 
+administrador podrá considerar en el futuro este tipo de soluciones cuando 
+se adapte a los requisitos de los usuarios.  
+
+\begin{itemize}
+\item Ubuntu Studio \url{http://ubuntustudio.org/}
+\item DreamStudio (formerly Dream Studio) \url{http://www.celeum.com/about-dreamstudio/}
+\item ArtistX \url{http://artistx.org/blog/}
+\item Musix GNU+Linux \url{https://musixdistro.wordpress.com/}
+\item AV Linux \url{http://www.bandshed.net/AVLinux.html}
+\end{itemize}
+
+
+Características básicas de la distribución:
+\begin{enumerate}
+\item País de origen. 
+\item Logo que la representa. 
+\item ¿Deriva de alguna otra distribución? 
+\item ¿Se encuentra activo su desarrollo? ¿De cuándo es la fecha de su última release? 
+\item ¿Qué entorno gráfico utiliza?
+\item ¿Cuál es su página web oficial?
+\item ¿Para qué arquitectura de hardware se encuentra disponible?
+\item ¿Proveen software privativo como parte de la instalación? 
+\end{enumerate}
+
+Aplicaciones multimedia:
+
+
+\end{document}
