@@ -429,7 +429,7 @@ ejemplos:
 \item Clementine. \url{https://directory.fsf.org/wiki/Clementine}. 
 Basado en Amarok. 
 \item XMMS. \url{https://directory.fsf.org/wiki/Xmms}. 
-\item VLC Media Player. \url{https://directory.fsf.org/wiki/VLC\_media\_player}
+\item VLC Media Player. \url{https://directory.fsf.org/wiki/VLC_media_player}
 Provee interfaz gráfica y en línea de comandos. 
 \item Mplayer. \url{http://www.mplayerhq.hu/}. Principalmente utilizado 
 desde el intérprete de comandos, sin embargo existen interfaces gráficas
@@ -536,15 +536,6 @@ Este tipo de requisitos requieren, además de las cuestiones relativas a la cali
 y el formato, el análisis de los requisitos de transmisión de audio: ancho de banda 
 requerido, tipo de red, compresión, etc. 
 
-\textcolor[rgb]{1,0,0}{NOTA: las secciones a continuación se encuentran en 
-construcción}
-
-\begin{figure}[h]
-\centering
-\includegraphics{UN_CONSTRUCTION_2ss.png}
-\renewcommand{\figurename}{Fig.}
-\label{contexto:figura}
-\end{figure}
 
 \subsection*{Video y animación}
 
@@ -607,51 +598,135 @@ y, como una extensión de lo mencionado para imágenes estáticas, la {\bf canti
 bits por píxel bpp}. Esto determinará la cantidad de colores que un píxel 
 puede representar. 
 
+Teniendo en cuenta lo anterior, el espacio de almacenamiento del video digital 
+será proporcional a la resolución, los fotogramas por segundo (fps) y la 
+profundidad de color de cada fotograma (bpp). Esto es opuesto a lo que sucede
+con la calidad del video obtenida al reducir alguno de los parámetros mencionados.
 
 Yendo a los contenidos multimedia, para que un video sea utilizable dentro de 
 una composición multimedia, éste debe encontrarse en formato digital. En este 
 sentido el video puede ser más complejo que el sonido a la hora de digitalizar
-formatos analógicos, debido a la multiplicidad de fuentes posibles. Debido a
-la gran cantidad de video en cinta disponible, y a la facilidad de grabado en 
-dichas cintas, una gran cantidad de video comienza en formato analógico. 
-Similarmente a lo visto para sonido, necesitaremos entonces, un modo de digitalizar 
-el video anlagóico para producir un video digital equivalente, utilizable en 
-composiciones multimedia. 
-
-Hoy e día existen camaras de video (filmadoras) digitales, 
-
-
-Tarjeta de video: 
-
-Conectores de video más comúnes: 
+formatos analógicos, debido a la multiplicidad de fuentes posibles. Por ejemplo, 
+debido a la gran cantidad de video en cinta disponible (ej VHS), muchos videos 
+comienza en formato analógico. El pasaje a formato digital requerirá del 
+equipamiento necesario para reproducir las cintas originales, cables y conectores, 
+hardware de captura de video en la computadora donde se pretende producir la 
+digitalización. Existen otras posibilidades, por ejemplo podríamos querer 
+capturar la imagen analógica proveniente de la señal de cable, etc. Hoy en día 
+existen existen cámaras de video (filmadoras) digitales, que almacenan directamente
+la imagen digitalizada reduciendo los requisitos de hardware y software, en este
+sentido. La siguiente imagen corresponde a una tarjeta de extensión PCIe que posee
+diversos conectores de entrada y salida de video: 
 
 
-Video codec
+\begin{figure}[h]
+\centering
+\includegraphics{PLACA.jpg}
+\renewcommand{\figurename}{Fig.}
+\caption{DeckLink Studio 4K Capture \& Playback Card from Blackmagic Design}
+\label{contexto:figura}
+\end{figure}
 
-Posibles requisitos
+Dentro de los requisitos de hardware, los conectores clásicos para video más 
+populares son:
 
 
-Reproducción:
+\begin{itemize}
+\item RCA - conector Cinch (Radio Corporation of America). Es antiguo y el menos 
+común en tarjetas de video. Sin embargo, aún se utiliza con mayor frecuencia 
+en equipos de audio y video (por ejemplo para conectar un televisor a un 
+reproductor de VCR o DVD).Los conectores RCA se utilizan con mayor frecuencia 
+para transmitir señales analógicas. Un determinado cable RCA sólo puede llevar 
+una señal a la vez. Por lo tanto, se deben usar múltiples conectores RCA para 
+ofrecer todos los componentes de una señal. Por ejemplo, el video de una 
+película podría ser llevado a través de un cable RCA en un conector, 
+mientras que el sonido de la misma película tendría que ser transportado en 
+un cable separado de RCA. 
+\item S-Video - Separated-Video. Transmite una señal analógica de video. 
+Se usa con frecuencia en televisores, reproductores de DVD, grabadores de 
+video, y videoconsolas modernas. Muchas tarjetas gráficas y tarjetas 
+sintonizadoras de TV también tienen, respectivamente, salida y entrada 
+de S-Video. También es muy común encontrar el conector S-Video en 
+computadoras portátiles.
+\item VGA - Video Graphics Array. Ha sido el conector más utilizado en los 
+últimos tiempos, la gran mayoría de las tarjetas de video lo proveen. Sin embargo
+fue diseñado para señales analógicas y display CRT (tubo de rayos catódicos). 
+Está siendo gradualmente reemplazado por HDMI. 
+\item Mini-VGA - Mini-VGA. El conector mini-VGA se utiliza en equipos 
+portátiles y otros sistemas, en lugar del VGA estándar. Además de su 
+tamaño compacto, el puerto mini-VGA también permite una señal de video compuesta 
+y S-Video, además de la señal de VGA.  Hoy en día, el conector mini-DVI ha 
+sustituido el mini-VGA.
+\item DVI - Digital Visual Interface. Diseñada para video digital a 
+diferencia de VGA que fue diseñada para visualización en CRT (tubo de 
+rayos catódicos, viejos monitores). Soporta compatibilidad con VGA, sin 
+embargo HDMI se plantea como su sucesor.  
+\item HDMI - High-Definition Multimedia Interface. Es más reciente que 
+DVI, no tiene compatibilidad con VGA. Se propone como sucesor de 
+DVI, presenta características adicionales sobre éste. 
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{conectores.png}
+\renewcommand{\figurename}{Fig.}
+\caption{Derecha a izquierda: RCA, SVideo, DVI, HDMI, VGA y Mini-VGA}
+\label{contexto:figura}
+\end{figure}
+
+Existen multiplicidad de requisitos posibles y aplicaciones. En este sentido 
+mencionaremos algunas aplicaciones que permiten requisitos básicos relacionados
+a video como ser: captura, reproducción y edición. Adicionalmente, mencionamos 
+algunas aplicaciones que permiten componer animaciones 2D y 3D. 
+
+{\bf Reproducción:}
 \begin{itemize}
 \item Totem.   \url{https://directory.fsf.org/wiki/Totem}. GNOME. 
 \item VLC y Mplayer.  Ambos mencionados en la sección audio, también aplican 
 a la reproducción de video en varios formatos.  
 \end{itemize}
 
-Edición:
+{\bf Edición:}
 \begin{itemize}
-\item Cinelerra \url{https://directory.fsf.org/wiki/Cinelerra}
+\item PiTiVi. \url{https://directory.fsf.org/wiki/PiTiVi}.
+Permite edición de audio y video. Basado en la biblioteca para
+streaming de medios, Gstreamer (\url{https://directory.fsf.org/wiki/Gstreamer})
+\item OpenShot. \url{https://directory.fsf.org/wiki/OpenShot}. Edición 
+de audio y video. Permite agregar. sub-titles, transiciones, y efectos, para 
+luego exportar el video a DVD, YouTube, Vimeo, Xbox 360, y otros formatos comunes.
+\item Avidemux 
+\item Cinelerra. \url{https://directory.fsf.org/wiki/Cinelerra}. Edición de audio
+y video, permite captura y reproducción. 
 \end{itemize}
 
-Aplicaciones para generar animaciones:
+
+{\bf Animación:}
 \begin{itemize}
-\item Blender. \url{https://directory.fsf.org/wiki/Blender}
-\item Stopmotion. \url{https://directory.fsf.org/wiki/Stopmotion}
-\item Synfig Studio. \url{https://directory.fsf.org/wiki/Synfig_Studio}
-\item Tupí.    \url{http://www.maefloresta.com/portal/es/acerca}
+\item Blender. \url{https://directory.fsf.org/wiki/Blender}. Es una suite de
+animación  3D integrada, para modelado, animación, rendering, post-producción, creación 
+interactiva y reproducción (juegos). 
+\item Stopmotion. \url{https://directory.fsf.org/wiki/Stopmotion}. Permite
+crear animaciones stop-motion\footnote{Técnica de animación que consiste 
+en aparentar el movimiento de objetos estáticos por medio de una serie de 
+imágenes fijas sucesivas.}, agregar audio, y luego exportarlas a 
+diferentes formatos (ej. MPEG, avi). 
+\item Synfig Studio. \url{https://directory.fsf.org/wiki/Synfig_Studio}. 
+Animación 2D, basado en imagen vectorial y matricial. 
+\item Tupí. \url{http://www.maefloresta.com/portal/es/acerca}. Animación
+2D. 
 \end{itemize}
 
-\subsection*{Composición multimedia (Authoring)}
+\textcolor[rgb]{1,0,0}{NOTA: las secciones a continuación se encuentran en 
+construcción}
+
+\begin{figure}[h]
+\centering
+\includegraphics{UN_CONSTRUCTION_2ss.png}
+\renewcommand{\figurename}{Fig.}
+\label{contexto:figura}
+\end{figure}
+
+\subsection*{Autoría multimedia (Authoring)}
 
 Hemos desarrollado brevemente aplicaciones multimedia relacionadas a la 
 creación y manipulación de componentes individuales que pueden luego 
@@ -663,7 +738,7 @@ al usuario control sobre la experiencia.
 Esta sección esta enfocada en las herramientas que permiten componer una 
 presentación multimedia, incluyendo 
 control interactivo por parte del usuario. Son herramientas que vinculan 
-elementos individuales de imágen, gráfico, audio, video, animación y texto. 
+elementos individuales de imagen, gráfico, audio, video, animación y texto. 
 A este proceso creativo de composición se lo denomina {\it autoría multimedia} 
 (del inglés``multimedia authoring''). 
 
@@ -680,7 +755,7 @@ paso a paso entre slides. El siguiente nivel de interactividad, será ser
 capaz de controlar la secuencia y decidir dónde avanzar a partir de 
 un conjunto de posibilidades (por ejemplo lo que sucede con una wiki). 
 Lo siguiente será el control del medio: detener/reproducir video, 
-buscar un texto, desplzamientos y zoom sobre la vista, etc.  
+buscar un texto, desplazamientos y zoom sobre la vista, etc.  
 El nivel de interacción puede ser mayor si se agrega control de objetos, 
 como se puede dar en un video juego, realidad aumentada, etc. 
 
@@ -705,58 +780,59 @@ presentaciones usando LibreOffice Impress puede ser bastante intuitiva,
 mientras que el uso de un software comercial como Adobe Director requerirá
 de más entrenamiento, previo a desarrollar una aplicación multimedia.  
 
-Existen cuatro tipos de autoría multimedia: 
-\begin{itemize}
-\item Autoría multimedia basada en metáforas: se trata de un conjunto de 
-interfases visuales, acciones y procedimientos que explotan 
-conocimientos específicos que los usuarios ya poseen acerca de otros dominios. 
-El propósito de la interfaz, metáfora, es darle al usuario conocimiento 
-instantáneo acerca de cómo usar la interfaz para crear aplicaciones multimedia. 
-\item Producción multimedia
-\item Presentación multimedia 
-\item Autoría automática
-\end{itemize} 
+%Existen cuatro tipos de autoría multimedia: 
+%\begin{itemize}
+%\item Autoría multimedia basada en metáforas: se trata de un conjunto de 
+%interfases visuales, acciones y procedimientos que explotan 
+%conocimientos específicos que los usuarios ya poseen acerca de otros dominios. 
+%El propósito de la interfaz, metáfora, es darle al usuario conocimiento 
+%instantáneo acerca de cómo usar la interfaz para crear aplicaciones multimedia. 
+%\item Producción multimedia
+%\item Presentación multimedia 
+%\item Autoría automática
+%\end{itemize} 
+%
+%{\bf Metáfora de autoría multimedia}
+%
+%La metáfora de autoría, o paradigma de autoría, es la metodología por 
+%la cual el sistema de autoría lleva a cabo su tarea. Hay varias 
+%metáforas: 
+%
+%\begin{itemize}
+%\item Metáfora lenguaje de scripting: utiliza un lenguaje de 
+%programación especial para proveer interactividad (botones, mouse, etc.), 
+%saltos, condicionales, bucles, funciones, macros, etc.  
+%\item Metáfora de slideshow: se trata de presentaciones lineales, si bien existen 
+%herramientas que permiten saltos entre slides. Ejemplos pueden ser Inkscape con su 
+%extensión Sozi y LibreOffice Impress. 
+%\item Metáfora jerárquica: los elementos controlables por los usuarios se 
+%organizan en una estructura de árbol, con frecuencia utilizado en las aplicaciones
+%dirigidas por menú. 
+%\item Metáfora basada en íconos y control de flujo: se dispone de íconos gráficos 
+%en una caja de herramientas, y el proceso de autoría consiste en ir creando un 
+%diagrama de flujo utilizando dichos íconos. Authorware
+%\item Metáfora de cuadros (frames): similar al anterior, pero los vínculos entre 
+%íconos son más conceptuales, en lugar de representar el flujo real del programa.
+%Otra de los formas en que las herramientas de autoría funcionan es a través del
+%modelado de una pila de cuadros (o páginas de un libro) . En este caso, cada cuadro
+%representa una única vista en la pantalla. Cuando el usuario se mueve a otro cuadro, 
+%la pantalla cambia. Cada cuadro puede contener varios componentes, tales como texto, 
+%gráficos y video.
+%\item Metáfora de tarjetas y scripting: 
+%\item Metáfora Cast/Score/Scripting. Adobe Director es el principal ejemplo
+%comercial de este tipo. 
+%\end{itemize}
 
-{\bf Metáfora de autoría multimedia}
+Comparativa para autoría de e-learning:
+\url{http://oss-watch.ac.uk/resources/ossoptionseducation}
 
-La metáfora de autoría, o paradigma de autoría, es la metodología por 
-la cual el sistema de autoría lleva a cabo su tarea. Hay varias 
-metáforas: 
-
-\begin{itemize}
-\item Metáfora lenguaje de scripting: utiliza un lenguaje de 
-programación especial para proveer interactividad (botones, mouse, etc.), 
-saltos, condicionales, bucles, funciones, macros, etc.  
-\item Metáfora de slideshow: se trata de presentaciones lineales, si bien existen 
-herramientas que permiten saltos entre slides. Ejemplos pueden ser Inkscape con su 
-extensión Sozi y LibreOffice Impress. 
-\item Metáfora jerárquica: los elementos controlables por los usuarios se 
-organizan en una estructura de árbol, con frecuencia utilizado en las aplicaciones
-dirigidas por menú. 
-\item Metáfora basada en íconos y control de flujo: se dispone de íconos gráficos 
-en una caja de herramientas, y el proceso de autoría consiste en ir creando un 
-diagrama de flujo utilizando dichos íconos. Authorware
-\item Metáfora de cuadros (frames): similar al anterior, pero los vínculos entre 
-íconos son más conceptuales, en lugar de representar el flujo real del programa.
-Otra de los formas en que las herramientas de autoría funcionan es a través del
-modelado de una pila de cuadros (o páginas de un libro) . En este caso, cada cuadro
-representa una única vista en la pantalla. Cuando el usuario se mueve a otro cuadro, 
-la pantalla cambia. Cada cuadro puede contener varios componentes, tales como texto, 
-gráficos y video.
-\item Metáfora de tarjetas y scripting: 
-\item Metáfora Cast/Score/Scripting. Adobe Director es el principal ejemplo
-comercial de este tipo. 
-\end{itemize}
-
-http://oss-watch.ac.uk/resources/ossoptionseducation
-http://www.nottingham.ac.uk/xerte/index.aspx
 
 \begin{itemize}
 \item{Wiki}
-\item{Openmeeting/Webex/Blackboard}
-\item{Blackboard}
+\item{Openmeeting}
 \item{PureData} \url{http://puredata.info/}
 \item{Ofimática:presentaciones,textos,etc.}
+\item{Inkscape+sozi}
 \end{itemize}
 
 \begin{thebibliography}{1}
