@@ -600,8 +600,10 @@ puede representar.
 
 Teniendo en cuenta lo anterior, el espacio de almacenamiento del video digital 
 será proporcional a la resolución, los fotogramas por segundo (fps) y la 
-profundidad de color de cada fotograma (bpp). Esto es opuesto a lo que sucede
-con la calidad del video obtenida al reducir alguno de los parámetros mencionados.
+profundidad de color de cada fotograma (bpp), así como también la duración 
+del video. Esto es opuesto a lo que sucede
+con la calidad del video obtenida al reducir alguno de los parámetros mencionados, 
+a excepción de la duración. 
 
 Yendo a los contenidos multimedia, para que un video sea utilizable dentro de 
 una composición multimedia, éste debe encontrarse en formato digital. En este 
@@ -780,60 +782,49 @@ presentaciones usando LibreOffice Impress puede ser bastante intuitiva,
 mientras que el uso de un software comercial como Adobe Director requerirá
 de más entrenamiento, previo a desarrollar una aplicación multimedia.  
 
-%Existen cuatro tipos de autoría multimedia: 
-%\begin{itemize}
-%\item Autoría multimedia basada en metáforas: se trata de un conjunto de 
-%interfases visuales, acciones y procedimientos que explotan 
-%conocimientos específicos que los usuarios ya poseen acerca de otros dominios. 
-%El propósito de la interfaz, metáfora, es darle al usuario conocimiento 
-%instantáneo acerca de cómo usar la interfaz para crear aplicaciones multimedia. 
-%\item Producción multimedia
-%\item Presentación multimedia 
-%\item Autoría automática
-%\end{itemize} 
-%
-%{\bf Metáfora de autoría multimedia}
-%
-%La metáfora de autoría, o paradigma de autoría, es la metodología por 
-%la cual el sistema de autoría lleva a cabo su tarea. Hay varias 
-%metáforas: 
-%
-%\begin{itemize}
-%\item Metáfora lenguaje de scripting: utiliza un lenguaje de 
-%programación especial para proveer interactividad (botones, mouse, etc.), 
-%saltos, condicionales, bucles, funciones, macros, etc.  
-%\item Metáfora de slideshow: se trata de presentaciones lineales, si bien existen 
-%herramientas que permiten saltos entre slides. Ejemplos pueden ser Inkscape con su 
-%extensión Sozi y LibreOffice Impress. 
-%\item Metáfora jerárquica: los elementos controlables por los usuarios se 
-%organizan en una estructura de árbol, con frecuencia utilizado en las aplicaciones
-%dirigidas por menú. 
-%\item Metáfora basada en íconos y control de flujo: se dispone de íconos gráficos 
-%en una caja de herramientas, y el proceso de autoría consiste en ir creando un 
-%diagrama de flujo utilizando dichos íconos. Authorware
-%\item Metáfora de cuadros (frames): similar al anterior, pero los vínculos entre 
-%íconos son más conceptuales, en lugar de representar el flujo real del programa.
-%Otra de los formas en que las herramientas de autoría funcionan es a través del
-%modelado de una pila de cuadros (o páginas de un libro) . En este caso, cada cuadro
-%representa una única vista en la pantalla. Cuando el usuario se mueve a otro cuadro, 
-%la pantalla cambia. Cada cuadro puede contener varios componentes, tales como texto, 
-%gráficos y video.
-%\item Metáfora de tarjetas y scripting: 
-%\item Metáfora Cast/Score/Scripting. Adobe Director es el principal ejemplo
-%comercial de este tipo. 
-%\end{itemize}
+Existen tantas formas de componer y presentar multimedia, como 
+pudieramos pensar. Los requisitos y las aplicaciones de autoría son diversas 
+y apelan a diferentes conocimientos previos de los autores: programación, 
+interfaz gráfica basada en íconos, marcos, diagrama de flujos, composición
+hypermedia (por ejemplo una wiki), presentaciones, 
+secuenciales, etc. Una clasificación de aplicacines de autoría
+detallada, basada en las metáforas de autoría implementadas éstas fuera 
+del alance de este curso.
 
-Comparativa para autoría de e-learning:
-\url{http://oss-watch.ac.uk/resources/ossoptionseducation}
-
-
+Algunos requisitos de usuarios de autoría podrían ser:
 \begin{itemize}
-\item{Wiki}
-\item{Openmeeting}
-\item{PureData} \url{http://puredata.info/}
-\item{Ofimática:presentaciones,textos,etc.}
-\item{Inkscape+sozi}
+\item Componer una presentación (slideshow). Aquí las suites ofimáticas
+suelen ofrecer aplicaciones para crearlas, como ser LibreOffice Impress. 
+También existen otras menos convencionales, pero con el mismo fin tal como 
+Inkscape (imágen vectorial) en conjunto con el plugin Sozi. Existen además 
+herramientas de desarrollo en la nube, que proveen características similares.    
+\item Documentación basada en vínculos (Hypermedia). Los diferentes software
+de wiki (ej. MediaWiki) pueden ser una herramienta sencilla e intuitiva para 
+los usuarios. 
+\item Los usuarios podrían querer generar animaciones interactivas para la web, 
+como los producidos por Adobe Flash y su formato SWF, ó las posibilidades que
+ofrece HTML5. En este sentido podemos mencionar algunas aplicaciones como: 
+	\begin{itemize}
+	\item H5P. Permite crear contenidos HTML5 para contenidos web interactivos. Juegos, 
+	      presentaciones, video interactivo, etc. Se integra como extensión a sitios 
+	      manejadores de contenido (CMS, del inglés Content Management System) 
+	      xomo Drupal, WordPress, o Joomla. Este tipo de contenidos HTML5 está
+	      reemplazando progresivamente al formato Flash (SWF y FLV) debido, 
+	      entre otras cosas, a ser Flash un formato propietario. 
+	\item Xical. \url{http://www.xical.org}. Permite crear videos interactivos Flash. 
+	\item SWTools. \url{http://www.swftools.org/}. Permite manipular el formato SWF (Adobe Flash).
+	\end{itemize}
+\item Portales o entornos educativos / Content Management Systems (CMS). 
+Existen gran número de desarrollos en este área,
+normalmente integran al menos bases de datos y servicios web, es decir son 
+aplicaciones con múltiples componentes. Por ejemplo Moodle\footnote{PEDCO es una 
+implementación de Moodle.} \url{https://moodle.org/?lang=es} es una herramienta
+de este tipo. Permite a los usuarios crear campus virtuales, salas de chat, 
+presentar documentación multimedia, etc. Otros a mencionar: Drupal, Joomla y WordPress. 
+\item Conferencia de audio y video, para presentaciones y clases en vivo. El proyecto
+Openmmeetings se enfoca en este tipo de requisitos. \url{http://openmeetings.apache.org/}
 \end{itemize}
+
 
 \begin{thebibliography}{1}
 
