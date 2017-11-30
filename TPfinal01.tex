@@ -1,0 +1,173 @@
+%%% LaTeX Template: Article/Thesis/etc. with colored headings and special fonts
+%%%
+%%% Source: http://www.howtotex.com/
+
+\documentclass[12pt]{article}
+
+
+\usepackage{apuntes-estilo}
+\usepackage{fancyhdr,lastpage}
+\usepackage{graphicx}
+
+
+
+\def\maketitle{
+
+% Titulo 
+ \makeatletter
+ {\color{bl} \centering \huge \sc \textbf{
+Trabajo práctico final \\
+\large \vspace*{-8pt} \color{black} Interoperabilidad y comparacion entre
+\emph{Microsoft office} y \emph{LibreOffice Writer}
+ \vspace*{8pt} }\par}
+ \makeatother
+
+
+% Autor
+ \makeatletter
+ {\centering \small 
+	Aplicaciones Libres\\
+ 	Departamento de Ingeniería de Computadoras \\
+ 	Facultad de Informática - Universidad Nacional del Comahue \\
+ 	\vspace{20pt} }
+ \makeatother
+
+}
+
+% Custom headers and footers
+\fancyhf{} % clear all header and footer fields
+\fancypagestyle{plain}{\fancyhf{}}
+  	\pagestyle{fancy}
+ 	\lhead{\footnotesize TP Final - Aplicaciones Libres}
+ 	\rhead{\footnotesize \thepage\ }	% "Page 1 of 2"
+
+\def\ti#1#2{\texttt{#1} & #2 \\ }
+
+
+
+\begin{document}
+
+\thispagestyle{empty}
+\maketitle
+\setlength{\parindent}{0pt}
+
+\section*{Formato interno}
+
+Elabore una comparativa entre las aplicaciones \emph{Microsoft Office} y
+\emph{LibreOffice Writer}. La comparación debe incluir una breve historia de los
+programas, comparación entre los formatos de archivos nativos, las distintas
+funcionalidades, los problemas de interoperabilidad entre ellos y licencias.
+
+Incluya las referencias que utilice para elaborar la comparativa. 
+
+La organización del trabajo recomendada es la siguiente:
+
+\scalebox{0.40}{
+
+\centering
+
+\fbox{
+\begin{minipage}[c][\paperheight]{\paperwidth}
+
+\titlepage
+
+\begin{center}
+\ \\
+\ \\
+\vspace{-1cm}
+
+
+\ \\
+
+\vspace{0.5cm}
+{\Large{\bf \sc Aplicaciones Libres}}\\
+
+\ \\
+{\Large { \sc Facultad de Informática}}\\
+
+\ \\
+{\Large{\bf \sc Universidad Nacional del Comahue}}\\
+
+
+\vspace{-2.5cm}
+\mbox{\hspace{-1cm}\includegraphics[width=2.5cm,height=2.5cm]{logos/unc.png}\hspace{13cm} \includegraphics[width=2.5cm,height=2.5cm]{logos/fai.png}}
+
+
+\vspace{6cm}
+
+{\Large {\bf\sc Trabajo practico final: Interoperabilidad y comparacion entre
+\emph{Microsoft office} y \emph{LibreOffice Writer}}}\\
+\ \\
+\ \\
+\vspace{3cm}
+
+{\Large Nombre, Apellido Autor}\\
+
+\vfill
+{\Large fecha}\\
+
+\end{center}
+
+\end{minipage}
+}
+
+\fbox{
+\begin{minipage}[c][\paperheight]{\paperwidth}
+
+\section*{Indice:}
+
+\begin{itemize}
+	\item Título 1......... Nº de pag.
+		\begin{itemize}
+			\item Sección 1....... Nº de pag.
+			\item Sección 2....... Nº de pag.
+		\end{itemize}
+	\item Título 2......... Nº de pag.
+		\begin{itemize}
+			\item Sección 1....... Nº de pag.
+			\item Sección 2....... Nº de pag.
+		\end{itemize}
+\end{itemize}
+
+\section*{Lista de gráficos:}
+
+\begin{itemize}
+
+	\item Título de figura o esquema 1..... Nº de pag.
+
+	\item Título de figura o esquema 2..... Nº de pag.
+
+\end{itemize}
+
+\section*{Introducción}
+
+Introducción al problema, importancia y objetivos.
+
+\section*{Desarrollo:}
+\begin{itemize}
+
+	\item Toda información de importancia.
+
+	\item Detallar explicar con vocabulario acorde. 
+
+	\item Citar textos, poner opiniones de personas. Tiene que ser claro y
+		preciso, también van a ir las imágenes y/o esquemas.
+
+\end{itemize}
+
+\section*{Conclusión:}
+
+Retomar y analizar lo que se dijo previamente en el desarrollo y demostrar que
+se cumplió con el objetivo y/o una conclusión final 
+
+\section*{Bibliografía:}
+
+Material bibliográfico detallado, si es un libro editorial, nombre del libro,
+autor,etc. Si es pagina de Internet poner el link y fecha de consulta. 
+
+\end{minipage}
+}
+
+}
+ 
+\end{document}
